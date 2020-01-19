@@ -24,7 +24,7 @@ public class ${className} extends SuperEntity {
     private static final long serialVersionUID=1L;
 
 #foreach ($column in $columns)
-    #if($column.columnName != $pk.columnName && $column.columnName != "createTime" && $column.columnName != "updateTime")
+    #if($column.columnName != $pk.columnName && $column.columnName != "create_time" && $column.columnName != "update_time")
         @ApiModelProperty(value = "$column.comments")
         private $column.attrType $column.attrname;
     #end
