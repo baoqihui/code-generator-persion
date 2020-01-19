@@ -18,8 +18,7 @@ import java.util.Date;
  * @author ${author}
  * @date ${datetime}
  */
-@Getter
-@Setter
+@Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("${tableName}")
 public class ${className} extends SuperEntity {
