@@ -1,7 +1,7 @@
 # code-generator
 
 #### 介绍
-Mybatis 的code-generator代码生成器，自动生成增删改查以及xml文件，配合teacher项目使用
+Mybatis 的code-generator代码生成器，自动生成增删改查以及xml文件，配合code-demo项目使用
 
 #### 软件架构
 spring boot，mybatis plus，swagger2
@@ -17,7 +17,7 @@ spring boot，mybatis plus，swagger2
 2.  在postman中Send and Download 
 3.  url：localhost:8081/generator/code?tables=user 
 4.  一次生成多表，表名参数之间使用英文“,”分割
-5.  配置模板在resources中的template，模板暂时对应teacher项目（https://gitee.com/idse666666/teacher.git），可自行配置
+5.  配置模板在resources中的template，模板暂时对应code-demo项目（https://gitee.com/idse666666/code-demo.git），可自行配置
 
 
 #### 参与贡献
