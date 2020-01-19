@@ -32,8 +32,8 @@ public class ${className}Controller {
      */
     @ApiOperation(value = "查询列表(此方法请使用PostMan测试)")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "page", value = "分页起始位置", required = false, dataType = "Integer"),
-            @ApiImplicitParam(name = "limit", value = "分页结束位置", required = false, dataType = "Integer")
+            @ApiImplicitParam(name = "page", value = "页码数", required = false, dataType = "Integer"),
+            @ApiImplicitParam(name = "limit", value = "当前页数量", required = false, dataType = "Integer")
     })
     @GetMapping("/${classname}")
     public PageResult list(@RequestParam(required = false) Map<String, Object> params) {
