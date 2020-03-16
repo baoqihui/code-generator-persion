@@ -31,15 +31,16 @@ public class ${className} extends SuperEntity {
         @TableLogic
         @ApiModelProperty(value = "$column.comments",hidden = true)
         private $column.attrType $column.attrname;
-        #end
-        #if($column.attrType=="Date")
-        @Excel(name = "$column.comments",format="yyyy-MM-dd HH:mm:ss")
-        @ApiModelProperty(value = "$column.comments")
-        private $column.attrType $column.attrname;
         #else
-        @Excel(name = "$column.comments")
-        @ApiModelProperty(value = "$column.comments")
-        private $column.attrType $column.attrname;
+            #if($column.attrType=="Date")
+            @Excel(name = "$column.comments",format="yyyy-MM-dd HH:mm:ss")
+            @ApiModelProperty(value = "$column.comments")
+            private $column.attrType $column.attrname;
+            #else
+            @Excel(name = "$column.comments")
+            @ApiModelProperty(value = "$column.comments")
+            private $column.attrType $column.attrname;
+            #end
         #end
     #end
 #end
