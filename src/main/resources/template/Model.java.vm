@@ -1,5 +1,6 @@
 package ${package}.${moduleName}.model;
 
+import cn.afterturn.easypoi.excel.annotation.Excel;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModelProperty;
@@ -31,6 +32,7 @@ public class ${className} extends SuperEntity {
         @ApiModelProperty(value = "$column.comments",hidden = true)
         private $column.attrType $column.attrname;
         #else
+        @Excel(name = "$column.comments")
         @ApiModelProperty(value = "$column.comments")
         private $column.attrType $column.attrname;
         #end
