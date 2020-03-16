@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5eecae88-0278-4e35-be3a-b9980cd9d8eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/template/Controller.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/template/Controller.java.vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/template/Controller.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/template/Controller.java.vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/template/Model.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/template/Model.java.vm" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -77,8 +76,16 @@
       <workItem from="1583974373979" duration="598000" />
       <workItem from="1584322801140" duration="1080000" />
       <workItem from="1584324108128" duration="2442000" />
-      <workItem from="1584338583297" duration="1322000" />
+      <workItem from="1584338583297" duration="2979000" />
     </task>
+    <task id="LOCAL-00001" summary="增加Excel操作">
+      <created>1584339960662</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1584339960662</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -96,5 +103,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="增加Excel操作" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加Excel操作" />
   </component>
 </project>
