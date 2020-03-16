@@ -69,4 +69,53 @@ public class ${className}Controller {
         ${classname}Service.removeById(${pk.attrname});
         return Result.succeed("删除成功");
     }
+    
+    /**
+     * 导入
+     */
+    @ApiOperation(value = "导入")
+    @PostMapping("/${classname}/leadIn")
+    public  Result leadIn(MultipartFile excel,String cuId) throws Exception {
+        int rowNum = 0;
+        if (!excel.isEmpty()) {
+            List<${className}> list = ExcelUtil.importExcel(excel, 1, 1, ${className}.class);
+            rowNum = list.size();
+            if (rowNum > 0) {
+                ${className} exist${className}=${classname}Service.getOne(new QueryWrapper<${className}>().eq("cu_id",cuId));
+                if (exist${className}==null){
+                    //无该用户信息
+                    list.forEach(u -> {
+                        u.setCuId(cuId);
+                        ${classname}Service.save(u);
+                    });
+                    return Result.succeed("成功导入信息"+rowNum+"行数据");
+                }else {
+                    list.forEach(u -> {
+                        u.setId(exist${className}.getId());
+                        ${classname}Service.updateById(u);
+                    });
+                    return Result.succeed("成功更新信息"+rowNum+"行数据");
+                }
+            }
+        }
+        return Result.failed("导入失败");
+    }
+    
+    /**
+     * 导出
+     */
+    @ApiOperation(value = "导出")
+    @PostMapping("/${classname}/leadOut")
+    public void leadOut(String cuId, HttpServletResponse response) throws IOException {
+        List<${className}> ${classname}s =new ArrayList<>();
+        List<${className}> ${classname}List = ${classname}Service.list(new QueryWrapper<${className}>().eq("cu_id", cuId));
+        if (${classname}List.isEmpty()) {${classname}s.add(${classname}Service.getById(0)); } else {
+            for (${className} ${classname} : ${classname}List) {
+                ${classname}s.add(${classname});
+            }
+        }
+        //导出操作
+        ExcelUtil.exportExcel(${classname}s, "${comments}导出", "${comments}导出", ${className}.class, "${classname}.xls", response);
+
+    }
 }

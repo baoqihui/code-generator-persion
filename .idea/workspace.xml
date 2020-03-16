@@ -3,14 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5eecae88-0278-4e35-be3a-b9980cd9d8eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/generator.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/generator.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/template/Model.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/template/Model.java.vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/generator.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/generator.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/template/Controller.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/template/Controller.java.vm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/template/Controller.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/template/Controller.java.vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/template/Model.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/template/Model.java.vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/template/Service.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/template/Service.java.vm" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,6 +77,7 @@
       <workItem from="1583974373979" duration="598000" />
       <workItem from="1584322801140" duration="1080000" />
       <workItem from="1584324108128" duration="2442000" />
+      <workItem from="1584338583297" duration="1322000" />
     </task>
     <servers />
   </component>
