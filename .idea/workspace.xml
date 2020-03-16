@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5eecae88-0278-4e35-be3a-b9980cd9d8eb" name="Default Changelist" comment="" />
+    <list default="true" id="5eecae88-0278-4e35-be3a-b9980cd9d8eb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/generator.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/generator.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/template/Model.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/template/Model.java.vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/generator.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/generator.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/template/Controller.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/template/Controller.java.vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/template/Model.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/template/Model.java.vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/template/Service.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/template/Service.java.vm" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +34,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -64,6 +74,15 @@
       <workItem from="1579413450195" duration="1490000" />
       <workItem from="1579414960726" duration="295000" />
       <workItem from="1579415292501" duration="225000" />
+      <workItem from="1579428237715" duration="398000" />
+      <workItem from="1579481828693" duration="2207000" />
+      <workItem from="1579568105720" duration="2907000" />
+      <workItem from="1583803401112" duration="1009000" />
+      <workItem from="1583804419135" duration="661000" />
+      <workItem from="1583887486965" duration="1261000" />
+      <workItem from="1583974373979" duration="598000" />
+      <workItem from="1584322801140" duration="1080000" />
+      <workItem from="1584324108128" duration="2442000" />
     </task>
     <servers />
   </component>

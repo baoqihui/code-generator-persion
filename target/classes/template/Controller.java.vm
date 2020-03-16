@@ -30,13 +30,13 @@ public class ${className}Controller {
     /**
      * 列表
      */
-    @ApiOperation(value = "查询列表")
+    @ApiOperation(value = "查询列表(此接口请使用PostMan测试)")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "page", value = "分页起始位置", required = true, dataType = "Integer"),
-            @ApiImplicitParam(name = "limit", value = "分页结束位置", required = true, dataType = "Integer")
+            @ApiImplicitParam(name = "page", value = "页码数", required = false, dataType = "Integer"),
+            @ApiImplicitParam(name = "limit", value = "当前页数量", required = false, dataType = "Integer")
     })
     @GetMapping("/${classname}")
-    public PageResult list(@RequestParam Map<String, Object> params) {
+    public PageResult list(@RequestParam(required = false) Map<String, Object> params) {
         return ${classname}Service.findList(params);
     }
 
