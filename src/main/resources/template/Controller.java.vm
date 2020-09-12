@@ -1,14 +1,22 @@
 package ${package}.${moduleName}.controller;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+
+import org.springframework.web.multipart.MultipartFile;
+import javax.servlet.http.HttpServletResponse;
+
 
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 
+import ${package}.${moduleName}.util.EasyPoiExcelUtil;
 import ${package}.${moduleName}.model.${className};
 import ${package}.${moduleName}.service.I${className}Service;
 import ${package}.${moduleName}.common.model.PageResult;
@@ -30,21 +38,18 @@ public class ${className}Controller {
     /**
      * 列表
      */
-    @ApiOperation(value = "查询列表(此接口请使用PostMan测试)")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "page", value = "页码数", required = false, dataType = "Integer"),
-            @ApiImplicitParam(name = "limit", value = "当前页数量", required = false, dataType = "Integer")
-    })
-    @GetMapping("/${classname}")
-    public PageResult list(@RequestParam(required = false) Map<String, Object> params) {
-        return ${classname}Service.findList(params);
+    @ApiOperation(value = "查询列表")
+    @PostMapping("/${classname}/list")
+    public Result<PageResult> list(@RequestBody Map<String, Object> params) {
+        Page<${className}> list= ${classname}Service.findList(params);
+        return Result.succeed(PageResult.restPage(list),"查询成功");
     }
 
     /**
      * 查询
      */
     @ApiOperation(value = "查询")
-    @GetMapping("/${classname}/{id}")
+    @PostMapping("/${classname}/sel/{id}")
     public Result findUserById(@PathVariable Long ${pk.attrname}) {
         ${className} model = ${classname}Service.getById(${pk.attrname});
         return Result.succeed(model, "查询成功");
@@ -54,7 +59,7 @@ public class ${className}Controller {
      * 新增or更新
      */
     @ApiOperation(value = "保存")
-    @PostMapping("/${classname}")
+    @PostMapping("/${classname}/save")
     public Result save(@RequestBody ${className} ${classname}) {
         ${classname}Service.saveOrUpdate(${classname});
         return Result.succeed("保存成功");
@@ -64,7 +69,7 @@ public class ${className}Controller {
      * 删除
      */
     @ApiOperation(value = "删除")
-    @DeleteMapping("/${classname}/{id}")
+    @PostMapping("/${classname}/del/{id}")
     public Result delete(@PathVariable Long ${pk.attrname}) {
         ${classname}Service.removeById(${pk.attrname});
         return Result.succeed("删除成功");
@@ -78,24 +83,14 @@ public class ${className}Controller {
     public  Result leadIn(MultipartFile excel,String cuId) throws Exception {
         int rowNum = 0;
         if (!excel.isEmpty()) {
-            List<${className}> list = ExcelUtil.importExcel(excel, 1, 1, ${className}.class);
+            List<${className}> list = EasyPoiExcelUtil.importExcel(excel, 1, 1, ${className}.class);
             rowNum = list.size();
             if (rowNum > 0) {
-                ${className} exist${className}=${classname}Service.getOne(new QueryWrapper<${className}>().eq("cu_id",cuId));
-                if (exist${className}==null){
-                    //无该用户信息
-                    list.forEach(u -> {
-                        u.setCuId(cuId);
+                //无该用户信息
+                list.forEach(u -> {
                         ${classname}Service.save(u);
-                    });
-                    return Result.succeed("成功导入信息"+rowNum+"行数据");
-                }else {
-                    list.forEach(u -> {
-                        u.setId(exist${className}.getId());
-                        ${classname}Service.updateById(u);
-                    });
-                    return Result.succeed("成功更新信息"+rowNum+"行数据");
-                }
+                });
+                return Result.succeed("成功导入信息"+rowNum+"行数据");
             }
         }
         return Result.failed("导入失败");
@@ -115,7 +110,7 @@ public class ${className}Controller {
             }
         }
         //导出操作
-        ExcelUtil.exportExcel(${classname}s, "${comments}导出", "${comments}导出", ${className}.class, "${classname}.xls", response);
+        EasyPoiExcelUtil.exportExcel(${classname}s, "${comments}导出", "${comments}导出", ${className}.class, "${classname}.xls", response);
 
     }
 }

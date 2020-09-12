@@ -1,19 +1,15 @@
 package ${package}.${moduleName}.service.impl;
 import ${package}.${moduleName}.mapper.${className}Mapper;
 import ${package}.${moduleName}.service.I${className}Service;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ${package}.${moduleName}.common.model.PageResult;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-
-import java.util.List;
+import javax.annotation.Resource;
 import java.util.Map;
 import org.apache.commons.collections4.MapUtils;
 import lombok.extern.slf4j.Slf4j;
 
 import ${package}.${moduleName}.model.${className};
-import ${package}.${moduleName}.service.I${className}Service;
 
 /**
  * ${comments}
@@ -24,22 +20,23 @@ import ${package}.${moduleName}.service.I${className}Service;
 @Slf4j
 @Service
 public class ${className}ServiceImpl extends ServiceImpl<${className}Mapper, ${className}> implements I${className}Service {
+    @Resource
+    private ${className}Mapper ${classname}Mapper;
     /**
      * 列表
      * @param params
      * @return
      */
-    public PageResult<${className}> findList(Map<String, Object> params){
-        Integer page = MapUtils.getInteger(params, "page");
-        Integer limit = MapUtils.getInteger(params, "limit");
-        if (page == null) {
-            page = 1;
+    public Page<${className}> findList(Map<String, Object> params){
+        Integer pageNum = MapUtils.getInteger(params, "pageNum");
+        Integer pageSize = MapUtils.getInteger(params, "pageSize");
+        if (pageNum == null) {
+            pageNum = 1;
         }
-        if (limit == null) {
-            limit = -1;
+        if (pageSize == null) {
+            pageSize = -1;
         }
-        Page<${className}> pages = new Page<>(page, limit);
-        List<${className}> list  =  baseMapper.findList(pages, params);
-        return PageResult.<${className}>builder().data(list).code(0).count(pages.getTotal()).build();
+        Page<${className}> pages = new Page<>(pageNum, pageSize);
+        return ${classname}Mapper.findList(pages, params);
     }
 }

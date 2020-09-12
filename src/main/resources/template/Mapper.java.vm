@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,9 +18,9 @@ import java.util.Map;
 public interface ${className}Mapper extends SuperMapper<${className}> {
     /**
      * 分页查询用户列表
-     * @param page
+     * @param pages
      * @param params
      * @return
      */
-    List<${className}> findList(Page<${className}> page, @Param("p") Map<String, Object> params);
+    Page<${className}> findList(Page<${className}> pages, @Param("p") Map<String, Object> params);
 }
