@@ -27,6 +27,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
+import sun.nio.cs.ext.MacArabic;
 
 /**
  * 代码生成器工具类
@@ -78,6 +79,7 @@ public class GenUtils {
         tableEntity.setComments(table.get("tableComment"));
         //表名转换成Java类名
         String className = tableToJava(tableEntity.getTableName(), config.getString("tablePrefix"));
+        String lTablePrefix = className.substring(0, 3).toLowerCase();
         tableEntity.setClassName(className);
         tableEntity.setClassname(StringUtils.uncapitalize(className));
 
@@ -124,6 +126,7 @@ public class GenUtils {
         //封装模板数据
         Map<String, Object> map = new HashMap<>();
         map.put("tableName", tableEntity.getTableName());
+        map.put("lTablePrefix",lTablePrefix);
         map.put("comments", tableEntity.getComments());
         map.put("pk", tableEntity.getPk());
         map.put("className", tableEntity.getClassName());

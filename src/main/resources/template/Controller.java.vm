@@ -29,8 +29,10 @@ import ${package}.${moduleName}.common.model.Result;
  * @date ${datetime}
  */
 @Slf4j
+@CrossOrigin
 @RestController
 @Api(tags = "${comments}")
+@RequestMapping("${lTablePrefix}")
 public class ${className}Controller {
     @Autowired
     private I${className}Service ${classname}Service;
@@ -80,7 +82,7 @@ public class ${className}Controller {
      */
     @ApiOperation(value = "导入")
     @PostMapping("/${classname}/leadIn")
-    public  Result leadIn(MultipartFile excel,String cuId) throws Exception {
+    public  Result leadIn(MultipartFile excel) throws Exception {
         int rowNum = 0;
         if (!excel.isEmpty()) {
             List<${className}> list = EasyPoiExcelUtil.importExcel(excel, 1, 1, ${className}.class);
