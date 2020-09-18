@@ -72,8 +72,9 @@ public class ${className}Controller {
      */
     @ApiOperation(value = "批量删除")
     @PostMapping("/${classname}/del")
-    public Result delete(@RequestBody List<Long> ${pk.attrname}) {
-        ${classname}Service.removeByIds(${pk.attrname});
+    public Result delete(@RequestBody Map<String,List<Long>> map) {
+        List<Long> ids = map.get("ids");
+        ${classname}Service.removeByIds(ids);
         return Result.succeed("删除成功");
     }
     
