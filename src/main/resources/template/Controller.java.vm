@@ -60,7 +60,7 @@ public class ${className}Controller {
     /**
      * 新增or更新
      */
-    @ApiOperation(value = "保存")
+    @ApiOperation(value = "新增or更新")
     @PostMapping("/${classname}/save")
     public Result save(@RequestBody ${className} ${classname}) {
         ${classname}Service.saveOrUpdate(${classname});
@@ -70,10 +70,10 @@ public class ${className}Controller {
     /**
      * 删除
      */
-    @ApiOperation(value = "删除")
-    @PostMapping("/${classname}/del/{id}")
-    public Result delete(@PathVariable Long ${pk.attrname}) {
-        ${classname}Service.removeById(${pk.attrname});
+    @ApiOperation(value = "批量删除")
+    @PostMapping("/${classname}/del")
+    public Result delete(@RequestBody List<Long> ${pk.attrname}) {
+        ${classname}Service.removeByIds(${pk.attrname});
         return Result.succeed("删除成功");
     }
     

@@ -29,6 +29,7 @@ import ${package}.${moduleName}.common.model.Result;
  * @date ${datetime}
  */
 @Slf4j
+@CrossOrigin
 @RestController
 @Api(tags = "${comments}")
 @RequestMapping("${lTablePrefix}")
