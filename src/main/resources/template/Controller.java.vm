@@ -74,7 +74,7 @@ public class ${className}Controller {
     @PostMapping("/${classname}/saveBatch")
     public Result save(@RequestBody Map<String,List<${className}>> map) {
         List<${className}> models = map.get("models");
-        ${classname}Service.saveOrUpdateBatch(modes);
+        ${classname}Service.saveOrUpdateBatch(models);
         return Result.succeed("保存成功");
     }
 

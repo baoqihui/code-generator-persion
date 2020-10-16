@@ -73,7 +73,7 @@ public class ${className}Controller {
     @ApiOperation(value = "批量新增or更新")
     @PostMapping("/${classname}/saveBatch")
     public Result save(@RequestBody Map<String,List<${className}>> map) {
-        List<${className}> modes = map.get("modes");
+        List<${className}> models = map.get("models");
         ${classname}Service.saveOrUpdateBatch(modes);
         return Result.succeed("保存成功");
     }
