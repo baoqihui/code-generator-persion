@@ -22,5 +22,5 @@ public interface ${className}Mapper extends SuperMapper<${className}> {
      * @param params
      * @return
      */
-    Page<${className}> findList(Page<${className}> pages, @Param("p") Map<String, Object> params);
+    Page<Map> findList(Page<Map> pages, @Param("p") Map<String, Object> params);
 }

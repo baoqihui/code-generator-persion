@@ -2,8 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="${package}.${moduleName}.mapper.${className}Mapper">
-    <select id="findList" resultType="${package}.${moduleName}.model.${className}">
-        select * from ${tableName} t
+    <select id="findList" resultType="map">
+        select
+        #foreach ($column in $columns)
+            t.$column.columnName $column.attrname,
+        #end
+        from ${tableName} t
         order by t.id desc
     </select>
 </mapper>

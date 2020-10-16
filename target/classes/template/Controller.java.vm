@@ -43,7 +43,7 @@ public class ${className}Controller {
     @ApiOperation(value = "查询列表")
     @PostMapping("/${classname}/list")
     public Result<PageResult> list(@RequestBody Map<String, Object> params) {
-        Page<${className}> list= ${classname}Service.findList(params);
+        Page<Map> list= ${classname}Service.findList(params);
         return Result.succeed(PageResult.restPage(list),"查询成功");
     }
 
@@ -60,7 +60,7 @@ public class ${className}Controller {
     /**
      * 新增or更新
      */
-    @ApiOperation(value = "保存")
+    @ApiOperation(value = "新增or更新")
     @PostMapping("/${classname}/save")
     public Result save(@RequestBody ${className} ${classname}) {
         ${classname}Service.saveOrUpdate(${classname});
@@ -68,12 +68,24 @@ public class ${className}Controller {
     }
 
     /**
+         * 批量新增or更新
+         */
+    @ApiOperation(value = "批量新增or更新")
+    @PostMapping("/${classname}/saveBatch")
+    public Result save(@RequestBody Map<String,List<${className}>> map) {
+        List<${className}> modes = map.get("modes");
+        ${classname}Service.saveOrUpdateBatch(modes);
+        return Result.succeed("保存成功");
+    }
+
+    /**
      * 删除
      */
-    @ApiOperation(value = "删除")
-    @PostMapping("/${classname}/del/{id}")
-    public Result delete(@PathVariable Long ${pk.attrname}) {
-        ${classname}Service.removeById(${pk.attrname});
+    @ApiOperation(value = "批量删除")
+    @PostMapping("/${classname}/del")
+    public Result delete(@RequestBody Map<String,List<Long>> map) {
+        List<Long> ids = map.get("ids");
+        ${classname}Service.removeByIds(ids);
         return Result.succeed("删除成功");
     }
     

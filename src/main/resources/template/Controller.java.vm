@@ -43,7 +43,7 @@ public class ${className}Controller {
     @ApiOperation(value = "查询列表")
     @PostMapping("/${classname}/list")
     public Result<PageResult> list(@RequestBody Map<String, Object> params) {
-        Page<${className}> list= ${classname}Service.findList(params);
+        Page<Map> list= ${classname}Service.findList(params);
         return Result.succeed(PageResult.restPage(list),"查询成功");
     }
 
@@ -64,6 +64,17 @@ public class ${className}Controller {
     @PostMapping("/${classname}/save")
     public Result save(@RequestBody ${className} ${classname}) {
         ${classname}Service.saveOrUpdate(${classname});
+        return Result.succeed("保存成功");
+    }
+
+    /**
+         * 批量新增or更新
+         */
+    @ApiOperation(value = "批量新增or更新")
+    @PostMapping("/${classname}/saveBatch")
+    public Result save(@RequestBody Map<String,List<${className}>> map) {
+        List<${className}> models = map.get("models");
+        ${classname}Service.saveOrUpdateBatch(modes);
         return Result.succeed("保存成功");
     }
 

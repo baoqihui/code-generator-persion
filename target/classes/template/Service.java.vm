@@ -18,6 +18,6 @@ public interface I${className}Service extends IService<${className}> {
      * @param params
      * @return
      */
-    Page<${className}> findList(Map<String, Object> params);
+    Page<Map> findList(Map<String, Object> params);
 }
 

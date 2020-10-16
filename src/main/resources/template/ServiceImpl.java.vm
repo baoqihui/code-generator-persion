@@ -27,7 +27,7 @@ public class ${className}ServiceImpl extends ServiceImpl<${className}Mapper, ${c
      * @param params
      * @return
      */
-    public Page<${className}> findList(Map<String, Object> params){
+    public Page<Map> findList(Map<String, Object> params){
         Integer pageNum = MapUtils.getInteger(params, "pageNum");
         Integer pageSize = MapUtils.getInteger(params, "pageSize");
         if (pageNum == null) {
@@ -36,7 +36,7 @@ public class ${className}ServiceImpl extends ServiceImpl<${className}Mapper, ${c
         if (pageSize == null) {
             pageSize = -1;
         }
-        Page<${className}> pages = new Page<>(pageNum, pageSize);
+        Page<Map> pages = new Page<>(pageNum, pageSize);
         return ${classname}Mapper.findList(pages, params);
     }
 }
