@@ -1,7 +1,7 @@
 ##配置你的账号密码数据源，修改后未生效重启idea即可
 spring:
   datasource:
-    url: jdbc:mysql://120.27.244.176:3306/mes?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/gtoa?useUnicode=true&characterEncoding=UTF-8
     username: root
     password: HBQ521521cf*
     driver-class-name: com.mysql.jdbc.Driver

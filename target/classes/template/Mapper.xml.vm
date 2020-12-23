@@ -5,7 +5,7 @@
     <select id="findList" resultType="map">
         select
         #foreach ($column in $columns)
-            t.$column.columnName $column.attrname,
+            t.$column.columnName $column.attrname,  -- $column.comments
         #end
         from ${tableName} t
         order by t.id desc
