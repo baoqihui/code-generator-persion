@@ -116,15 +116,9 @@ public class ${className}Controller {
     @ApiOperation(value = "导出")
     @PostMapping("/${classname}/leadOut")
     public void leadOut(HttpServletResponse response) throws IOException {
-        List<${className}> ${classname}s =new ArrayList<>();
         List<${className}> ${classname}List = ${classname}Service.list(new QueryWrapper<${className}>());
-        if (${classname}List.isEmpty()) {${classname}s.add(${classname}Service.getById(0)); } else {
-            for (${className} ${classname} : ${classname}List) {
-                ${classname}s.add(${classname});
-            }
-        }
         //导出操作
-        EasyPoiExcelUtil.exportExcel(${classname}s, "${comments}导出", "${comments}导出", ${className}.class, "${classname}.xls", response);
+        EasyPoiExcelUtil.exportExcel(${classname}List, "${comments}导出", "${comments}导出", ${className}.class, "${classname}.xls", response);
 
     }
 }
