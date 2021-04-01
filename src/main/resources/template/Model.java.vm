@@ -36,6 +36,10 @@ public class ${className} extends SuperEntity {
         @Excel(name = "$column.comments",format="yyyy-MM-dd HH:mm:ss")
         @ApiModelProperty(value = "$column.comments")
         private $column.attrType $column.attrname;
+            #elseif($column.attrType=="Boolean")
+        @Excel(name = "$column.comments",replace ={"否_false","是_true"})
+        @ApiModelProperty(value = "$column.comments")
+        private $column.attrType $column.attrname;
             #else
         @Excel(name = "$column.comments")
         @ApiModelProperty(value = "$column.comments")
