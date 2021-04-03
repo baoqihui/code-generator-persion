@@ -1,4 +1,4 @@
-# code-generator
+# code-generator-persion
 
 #### 介绍
 Mybatis plus的code-generator-persion代码生成器，自动生成增删改查以及xml文件，配合code-demo-persion项目使用
