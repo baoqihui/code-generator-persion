@@ -66,8 +66,8 @@ public class ${className}Controller {
     }
 
     /**
-         * 批量新增or更新
-         */
+     * 批量新增or更新
+     */
     @ApiOperation(value = "批量新增or更新")
     @PostMapping("/${classname}/saveBatch")
     public Result saveBatch(@RequestBody Map<String,List<${className}>> map) {
