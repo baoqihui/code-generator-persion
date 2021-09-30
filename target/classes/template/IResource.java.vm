@@ -1,0 +1,29 @@
+package ${package}.${moduleName}.controller.api;
+
+import ${package}.${moduleName}.constants.WebConstants;
+import ${package}.${moduleName}.dto.Dto${className};
+import ${package}.version.VersionedResource;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+/**
+ * @Author: ${author}
+ * @Description: ${comments}接口
+ * @Date: ${datetime}
+ */
+@Api(tags = "${comments}")
+@RequestMapping("/" + WebConstants.VERSION_NO +"/${classname}")
+@VersionedResource(from = "1.0")
+public interface I${className}Resource {
+
+    /**
+     * 查询
+     * @param id
+     * @return
+     */
+    @ApiOperation(value = "查询")
+    @GetMapping("getById")
+    ResponseEntity<Dto${className}> getById(Long id);
+}

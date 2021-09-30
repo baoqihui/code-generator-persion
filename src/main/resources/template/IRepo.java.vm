@@ -1,0 +1,16 @@
+package ${package}.service.repo;
+
+
+import ${package}.entity.model.${className};
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+/**
+ * @Author: ${author}
+ * @Description: ${comments}jpa操作
+ * @Date: ${datetime}
+ */
+@Repository
+public interface I${className}Repo extends JpaRepository<${className}, Long> {
+
+}

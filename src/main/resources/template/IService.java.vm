@@ -1,0 +1,12 @@
+package ${package}.service.api;
+
+import ${package}.entity.model.${className};
+
+/**
+ * @Author: ${author}
+ * @Description: ${comments}服务接口
+ * @Date: ${datetime}
+ */
+public interface I${className}Service {
+    Auto getById(Long id);
+}

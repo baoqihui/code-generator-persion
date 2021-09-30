@@ -1,0 +1,12 @@
+package ${package}.${moduleName}.service.api;
+
+import ${package}.${moduleName}.dto.Dto${className};
+
+/**
+ * @Author: ${author}
+ * @Description: ${comments}门面接口
+ * @Date: ${datetime}
+ */
+public interface I${className}ServiceFacade {
+    Dto${className} getById(Long id);
+}

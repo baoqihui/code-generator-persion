@@ -1,0 +1,35 @@
+package ${package}.${moduleName}.service.impl;
+
+import ${package}.entity.model.${className};
+import ${package}.${moduleName}.dto.Dto${className};
+import ${package}.${moduleName}.service.api.I${className}ServiceFacade;
+import ${package}.service.api.I${className}Service;
+import groovy.util.logging.Slf4j;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * @Author: ${author}
+ * @Description: ${comments}门面接口实现
+ * @Date: ${datetime}
+ */
+@Slf4j
+@Service
+public class ${className}ServiceFacade implements I${className}ServiceFacade {
+    @Autowired
+    private I${className}Service ${classname}Service;
+
+    @Override
+    public Dto${className} getById(Long id) {
+        return formatData(${classname}Service.getById(id));
+    }
+    /**
+     * 格式化数据
+     * */
+    Dto${className} formatData(${className} ${classname}){
+        Dto${className} dto${className} = new Dto${className}();
+        BeanUtils.copyProperties(${classname},dto${className});
+        return dto${className};
+    }
+}

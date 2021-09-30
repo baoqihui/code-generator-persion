@@ -1,23 +1,26 @@
-package ${package}.${moduleName}.service;
+package ${package}.service.impl;
 
-import ${package}.${moduleName}.model.${className};
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.baomidou.mybatisplus.extension.service.IService;
-
-import java.util.Map;
+import ${package}.entity.model.${className};
+import ${package}.service.api.I${className}Service;
+import ${package}.service.repo.I${className}Repo;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
- * ${comments}
- *
- * @author ${author}
- * @date ${datetime}
+ * @Author: ${author}
+ * @Description: ${comments}服务接口实现
+ * @Date: ${datetime}
  */
-public interface I${className}Service extends IService<${className}> {
-    /**
-     * 列表
-     * @param params
-     * @return
-     */
-    Page<Map> findList(Map<String, Object> params);
+@Slf4j
+@Service
+public class ${className}Service implements I${className}Service {
+    @Autowired
+    private I${className}Repo ${classname}Repository;
+
+    @Override
+    public Auto getById(Long id) {
+        return ${classname}Repository.findById(id).orElse(null);
+    }
 }
 

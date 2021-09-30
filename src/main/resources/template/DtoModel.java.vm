@@ -1,6 +1,6 @@
 package ${package}.entity.model;
 
-
+import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -20,23 +20,14 @@ import java.math.BigDecimal;
 @Data
 @Entity
 @Table ( name ="${tableName}" )
-public class ${className} implements Serializable {
+public class Dto${className} implements Serializable {
     private static final long serialVersionUID =  1L;
 
 #foreach ($column in $columns)
-    #if( $column.columnName =="id")
     /**
-     * $column.comments
-     */
-    @Id
-    @Column(name = "$column.columnName" )
+    * $column.comments
+    */
+    @ApiModelProperty(value = "$column.comments")
     private $column.attrType $column.attrname;
-    #else
-    /**
-     * $column.comments
-     */
-    @Column(name = "$column.columnName" )
-    private $column.attrType $column.attrname;
-    #end
 #end
 }
