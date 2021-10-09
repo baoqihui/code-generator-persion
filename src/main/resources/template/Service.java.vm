@@ -4,7 +4,7 @@ import ${package}.entity.model.${className};
 import ${package}.service.api.I${className}Service;
 import ${package}.service.repo.I${className}Repo;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
