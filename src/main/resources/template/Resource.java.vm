@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date: ${datetime}
  */
 @RestController
+@AllArgsConstructor
 public class ${className}Resource implements I${className}Resource {
-    @Autowired
     private I${className}ServiceFacade ${classname}ServiceFacade;
 
     @Override

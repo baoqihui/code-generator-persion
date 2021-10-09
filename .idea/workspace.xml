@@ -22,36 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eecae88-0278-4e35-be3a-b9980cd9d8eb" name="Default Changelist" comment="xml条件查询完善">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/template/IResource.java.vm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/template/IServiceFacade.java.vm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/template/Resource.java.vm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/template/ServiceFacade.java.vm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/template/IResource.java.vm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/template/Resource.java.vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+    <list default="true" id="5eecae88-0278-4e35-be3a-b9980cd9d8eb" name="Default Changelist" comment="整合cheche项目架构，整套逆向生成代码">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code-generator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/code-generator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/central/generator/utils/GenUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/central/generator/utils/GenUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/generator.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/generator.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/template/Controller.java.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/template/Mapper.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/template/IRepo.java.vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/template/Mapper.xml.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/template/DtoModel.java.vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/template/Model.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/template/Model.java.vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/template/IService.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/template/IService.java.vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/template/Resource.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/template/Resource.java.vm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/template/Service.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/template/Service.java.vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/template/ServiceImpl.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/template/IService.java.vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/central/generator/model/PageResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/central/generator/model/PageResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/central/generator/service/impl/SysGeneratorServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/central/generator/service/impl/SysGeneratorServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/central/generator/utils/GenUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/central/generator/utils/GenUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/template/ServiceFacade.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/template/ServiceFacade.java.vm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/generator.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/generator.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/template/Controller.java.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/template/Mapper.java.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/template/Mapper.xml.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/template/Model.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/template/Model.java.vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/template/Service.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/template/Service.java.vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/template/ServiceImpl.java.vm" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +44,11 @@
     <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JRebelWorkspace">
@@ -120,13 +102,15 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -232,7 +216,8 @@
       <workItem from="1617243202909" duration="94000" />
       <workItem from="1617243352283" duration="2432000" />
       <workItem from="1617323102574" duration="6208000" />
-      <workItem from="1632967253222" duration="14003000" />
+      <workItem from="1632967253222" duration="16520000" />
+      <workItem from="1633769818537" duration="316000" />
     </task>
     <task id="LOCAL-00001" summary="增加Excel操作">
       <created>1584339960662</created>
@@ -269,7 +254,21 @@
       <option name="project" value="LOCAL" />
       <updated>1617243920833</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="整合cheche项目架构，整套逆向生成代码">
+      <created>1632988398708</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1632988398708</updated>
+    </task>
+    <task id="LOCAL-00007" summary="车车使用教程">
+      <created>1632989795895</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1632989795895</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,52 +291,62 @@
     <MESSAGE value="excel导出中时间类型处理" />
     <MESSAGE value="excel导出中时间去除cuid" />
     <MESSAGE value="xml条件查询完善" />
-    <option name="LAST_COMMIT_MESSAGE" value="xml条件查询完善" />
+    <MESSAGE value="整合cheche项目架构，整套逆向生成代码" />
+    <MESSAGE value="车车使用教程" />
+    <option name="LAST_COMMIT_MESSAGE" value="车车使用教程" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3192" y="320" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1632974296631">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="3192" y="320" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1632974296631" />
+    <state x="2483" y="106" key="CommitChangelistDialog2" timestamp="1632989794040">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2483" y="106" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1632989794040" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1632967289382">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1632967289382" />
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1632987337874">
+    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1632991228730">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1632987337874" />
-    <state width="1877" height="280" key="GridCell.Tab.0.center" timestamp="1632987337873">
+    <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1632991228730" />
+    <state width="1877" height="280" key="GridCell.Tab.0.center" timestamp="1632991228727">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1632987337873" />
-    <state width="1877" height="280" key="GridCell.Tab.0.left" timestamp="1632987337873">
+    <state width="1877" height="280" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1632991228727" />
+    <state width="1877" height="280" key="GridCell.Tab.0.left" timestamp="1632991228726">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1632987337873" />
-    <state width="1877" height="280" key="GridCell.Tab.0.right" timestamp="1632987337874">
+    <state width="1877" height="280" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1632991228726" />
+    <state width="1877" height="280" key="GridCell.Tab.0.right" timestamp="1632991228729">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1632987337874" />
-    <state width="1877" height="280" key="GridCell.Tab.1.bottom" timestamp="1632987337876">
+    <state width="1877" height="280" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1632991228729" />
+    <state width="1877" height="280" key="GridCell.Tab.1.bottom" timestamp="1632991228733">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1632987337876" />
-    <state width="1877" height="280" key="GridCell.Tab.1.center" timestamp="1632987337875">
+    <state width="1877" height="280" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1632991228733" />
+    <state width="1877" height="280" key="GridCell.Tab.1.center" timestamp="1632991228732">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1632987337875" />
-    <state width="1877" height="280" key="GridCell.Tab.1.left" timestamp="1632987337874">
+    <state width="1877" height="280" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1632991228732" />
+    <state width="1877" height="280" key="GridCell.Tab.1.left" timestamp="1632991228730">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1632987337874" />
-    <state width="1877" height="280" key="GridCell.Tab.1.right" timestamp="1632987337875">
+    <state width="1877" height="280" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1632991228730" />
+    <state width="1877" height="280" key="GridCell.Tab.1.right" timestamp="1632991228733">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1632987337875" />
+    <state width="1877" height="280" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1632991228733" />
     <state x="270" y="57" key="SettingsEditor" timestamp="1632967317600">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="270" y="57" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1632967317600" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1632989800131">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1632989800131" />
   </component>
 </project>

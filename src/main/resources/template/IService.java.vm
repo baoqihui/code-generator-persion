@@ -8,5 +8,5 @@ import ${package}.entity.model.${className};
  * @Date: ${datetime}
  */
 public interface I${className}Service {
-    Auto getById(Long id);
+    ${className} getById(Long id);
 }

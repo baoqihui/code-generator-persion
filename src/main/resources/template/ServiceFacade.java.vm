@@ -16,8 +16,8 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service
+@AllArgsConstructor
 public class ${className}ServiceFacade implements I${className}ServiceFacade {
-    @Autowired
     private I${className}Service ${classname}Service;
 
     @Override
