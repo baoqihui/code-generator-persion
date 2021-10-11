@@ -2,6 +2,6 @@
 *.iml
 *.ipr
 *.iws
-.idea/
-classes/
+/.idea/
+/classes/
 /target/
