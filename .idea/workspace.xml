@@ -23,9 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5eecae88-0278-4e35-be3a-b9980cd9d8eb" name="Default Changelist" comment="xml条件查询完善">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/template/Controller.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/template/Controller.java.vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/template/Controller.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/template/Controller.java.vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-generator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/code-generator.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +48,7 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="localRepository" value="D:\maven\repository" />
-        <option name="mavenHome" value="D:\maven\apache-maven-3.6.1" />
+        <option name="mavenHome" value="C:\SOFT\maven\apache-maven-3.6.1" />
         <option name="userSettingsFile" value="D:\maven\apache-maven-3.6.1\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
@@ -80,7 +78,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="项目" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
@@ -89,6 +87,17 @@
     <selection>jr</selection>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CodeGeneratorApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="code-generator" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.central.generator.CodeGeneratorApp" />
@@ -190,6 +199,7 @@
       <workItem from="1617243202909" duration="94000" />
       <workItem from="1617243352283" duration="2432000" />
       <workItem from="1617323102574" duration="6208000" />
+      <workItem from="1633919344104" duration="88000" />
     </task>
     <task id="LOCAL-00001" summary="增加Excel操作">
       <created>1584339960662</created>
@@ -252,66 +262,13 @@
     <option name="LAST_COMMIT_MESSAGE" value="xml条件查询完善" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2341" y="95" key="FileChooserDialogImpl" timestamp="1609903946536">
-      <screen x="1920" y="0" width="1280" height="680" />
+    <state x="2660" y="274" key="FileChooserDialogImpl" timestamp="1633919381556">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2341" y="95" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1609903946536" />
-    <state width="1492" height="265" key="GridCell.Tab.0.bottom" timestamp="1617348925560">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2660" y="274" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1633919381556" />
+    <state x="2381" y="164" key="SettingsEditor" timestamp="1633919437438">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1492" height="265" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1280.680@0.0.1536.824" timestamp="1617348925560" />
-    <state width="1237" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1616984916117" />
-    <state width="1492" height="265" key="GridCell.Tab.0.center" timestamp="1617348925559">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1492" height="265" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1280.680@0.0.1536.824" timestamp="1617348925559" />
-    <state width="1237" height="208" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1616984916117" />
-    <state width="1492" height="265" key="GridCell.Tab.0.left" timestamp="1617348925559">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1492" height="265" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1280.680@0.0.1536.824" timestamp="1617348925559" />
-    <state width="1237" height="208" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1616984916117" />
-    <state width="1492" height="265" key="GridCell.Tab.0.right" timestamp="1617348925559">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1492" height="265" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1280.680@0.0.1536.824" timestamp="1617348925559" />
-    <state width="1237" height="208" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1616984916117" />
-    <state width="1492" height="265" key="GridCell.Tab.1.bottom" timestamp="1617348925560">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1492" height="265" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1280.680@0.0.1536.824" timestamp="1617348925560" />
-    <state width="1237" height="208" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1616984916118" />
-    <state width="1492" height="265" key="GridCell.Tab.1.center" timestamp="1617348925560">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1492" height="265" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1280.680@0.0.1536.824" timestamp="1617348925560" />
-    <state width="1237" height="208" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1616984916117" />
-    <state width="1492" height="265" key="GridCell.Tab.1.left" timestamp="1617348925560">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1492" height="265" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1280.680@0.0.1536.824" timestamp="1617348925560" />
-    <state width="1237" height="208" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1616984916117" />
-    <state width="1492" height="265" key="GridCell.Tab.1.right" timestamp="1617348925560">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1492" height="265" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1280.680@0.0.1536.824" timestamp="1617348925560" />
-    <state width="1237" height="208" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1616984916117" />
-    <state x="2199" y="60" key="RollbackChangesDialog" timestamp="1610411161645">
-      <screen x="1920" y="0" width="1280" height="680" />
-    </state>
-    <state x="2199" y="60" key="RollbackChangesDialog/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1610411161645" />
-    <state x="2062" y="0" key="SettingsEditor" timestamp="1615258558328">
-      <screen x="1920" y="0" width="1280" height="680" />
-    </state>
-    <state x="2062" y="0" key="SettingsEditor/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1615258558328" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1617243922117">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1280.680@0.0.1536.824" timestamp="1617243922117" />
-    <state x="2221" y="120" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1616746127191" />
-    <state x="2223" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1611016370235">
-      <screen x="1920" y="0" width="1280" height="680" />
-    </state>
-    <state x="2223" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1611016370235" />
+    <state x="2381" y="164" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1633919437438" />
   </component>
 </project>

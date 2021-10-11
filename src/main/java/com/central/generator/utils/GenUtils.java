@@ -27,7 +27,6 @@ import org.apache.commons.io.IOUtils;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
-import sun.nio.cs.ext.MacArabic;
 
 /**
  * 代码生成器工具类
