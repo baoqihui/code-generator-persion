@@ -1,10 +1,6 @@
 package ${package}.entity.model;
 
 import io.swagger.annotations.ApiModelProperty;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
 import java.io.Serializable;
 import lombok.Data;
 import java.util.Date;
@@ -18,8 +14,6 @@ import java.math.BigDecimal;
  * @Date: ${datetime}
  */
 @Data
-@Entity
-@Table ( name ="${tableName}" )
 public class Dto${className} implements Serializable {
     private static final long serialVersionUID =  1L;
 

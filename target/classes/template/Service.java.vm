@@ -4,7 +4,7 @@ import ${package}.entity.model.${className};
 import ${package}.service.api.I${className}Service;
 import ${package}.service.repo.I${className}Repo;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,12 +14,12 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service
+@AllArgsConstructor
 public class ${className}Service implements I${className}Service {
-    @Autowired
     private I${className}Repo ${classname}Repository;
 
     @Override
-    public Auto getById(Long id) {
+    public ${className} getById(Long id) {
         return ${classname}Repository.findById(id).orElse(null);
     }
 }

@@ -3,7 +3,7 @@ package ${package}.${moduleName}.controller.impl;
 import ${package}.${moduleName}.controller.api.I${className}Resource;
 import ${package}.${moduleName}.dto.Dto${className};
 import ${package}.${moduleName}.service.api.I${className}ServiceFacade;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date: ${datetime}
  */
 @RestController
+@AllArgsConstructor
 public class ${className}Resource implements I${className}Resource {
-    @Autowired
     private I${className}ServiceFacade ${classname}ServiceFacade;
 
     @Override
