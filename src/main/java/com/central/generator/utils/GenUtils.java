@@ -44,8 +44,8 @@ public class GenUtils {
     private final static String FILE_NAME_IServiceFacade = "IServiceFacade.java.vm";
     private final static String FILE_NAME_ServiceFacade = "ServiceFacade.java.vm";
     private final static String FILE_NAME_IService = "IService.java.vm";
-    private final static String FILE_NAME_Service = "Service.java.vm";
-    private final static String FILE_NAME_IRepo = "IRepo.java.vm";
+    private final static String FILE_NAME_Service = "ServiceImpl.java.vm";
+    private final static String FILE_NAME_IRepo = "Mapper.java.vm";
     private final static String FILE_NAME_MODEL = "Model.java.vm";
     private final static String FILE_NAME_DtoModel = "DtoModel.java.vm";
   //  private final static String FILE_NAME_PAGE = "index.html.vm";
@@ -226,10 +226,10 @@ public class GenUtils {
             return servicePackagePath + "service" +File.separator+"api"+ File.separator +"I"+ className + "Service.java";
         }
         if (template.contains(FILE_NAME_Service)) {
-            return servicePackagePath + "service" +File.separator+"impl"+ File.separator + className + "Service.java";
+            return servicePackagePath + "service" +File.separator+"impl"+ File.separator + className + "ServiceImpl.java";
         }
         if (template.contains(FILE_NAME_IRepo)) {
-            return servicePackagePath + "service" + File.separator +"repo"+ File.separator +"I"+ className + "Repo.java";
+            return servicePackagePath + "service" + File.separator +"repo"+ File.separator + className + "Mapper.java";
         }
 
         if (template.contains(FILE_NAME_MODEL)) {

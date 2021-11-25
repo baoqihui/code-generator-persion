@@ -1,5 +1,6 @@
 package ${package}.service.api;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import ${package}.entity.model.${className};
 
 /**
@@ -7,6 +8,6 @@ import ${package}.entity.model.${className};
  * @Description: ${comments}服务接口
  * @Date: ${datetime}
  */
-public interface I${className}Service {
-    ${className} getById(Long id);
+public interface I${className}Service extends IService<${className}>{
+
 }

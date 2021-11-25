@@ -1,25 +1,27 @@
 package ${package}.${moduleName}.controller.impl;
 
+import ${package}.entity.model.${className};
+import ${package}.service.api.I${className}Service;
+import ${package}.service.util.Result;
 import ${package}.${moduleName}.controller.api.I${className}Resource;
-import ${package}.${moduleName}.dto.Dto${className};
-import ${package}.${moduleName}.service.api.I${className}ServiceFacade;
+import ${package}.${moduleName}.controller.version.ApiVersion;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
-
 /**
  * @Author: ${author}
  * @Description: ${comments}接口实现
  * @Date: ${datetime}
  */
+@Slf4j
+@ApiVersion
 @RestController
 @AllArgsConstructor
 public class ${className}Resource implements I${className}Resource {
-    private I${className}ServiceFacade ${classname}ServiceFacade;
+    private I${className}Service ${classname}Service;
 
     @Override
-    public ResponseEntity<Dto${className}> getById(Long id) {
-        return new ResponseEntity<>(${classname}ServiceFacade.getById(id), HttpStatus.OK);
+    public Result<${className}> getById(Long id) throws Exception{
+        return Result.success(${classname}Service.getById(id));
     }
 }

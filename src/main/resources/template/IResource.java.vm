@@ -1,21 +1,19 @@
 package ${package}.${moduleName}.controller.api;
 
-import ${package}.${moduleName}.constants.WebConstants;
-import ${package}.${moduleName}.dto.Dto${className};
-import ${package}.version.VersionedResource;
+import ${package}.entity.model.${className};
+import ${package}.service.util.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 /**
  * @Author: ${author}
  * @Description: ${comments}接口
  * @Date: ${datetime}
  */
 @Api(tags = "${comments}")
-@RequestMapping("/" + WebConstants.VERSION_NO +"/${classname}")
-@VersionedResource(from = "1.0")
+@RequestMapping("/${classname}")
+@Validated
 public interface I${className}Resource {
 
     /**
@@ -25,5 +23,5 @@ public interface I${className}Resource {
      */
     @ApiOperation(value = "查询")
     @GetMapping("getById")
-    ResponseEntity<Dto${className}> getById(Long id);
+    Result<${className}> getById(Long id) throws Exception;
 }

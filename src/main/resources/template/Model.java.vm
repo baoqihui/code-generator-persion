@@ -1,12 +1,9 @@
 package ${package}.entity.model;
 
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
 import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.util.Date;
 #if(${hasBigDecimal})
 import java.math.BigDecimal;
@@ -18,24 +15,32 @@ import java.math.BigDecimal;
  * @Date: ${datetime}
  */
 @Data
-@Entity
-@Table ( name ="${tableName}" )
+@NoArgsConstructor
+@TableName(value = "${tableName}")
 public class ${className} implements Serializable {
     private static final long serialVersionUID =  1L;
 
 #foreach ($column in $columns)
     #if( $column.columnName =="id")
+    @TableId(value = "$column.columnName" ,type = IdType.AUTO)
+    private $column.attrType $column.attrname;
+    #elseif($column.columnName =="create_time")
     /**
      * $column.comments
      */
-    @Id
-    @Column(name = "$column.columnName" )
+    @TableField(fill = FieldFill.INSERT)
+    private $column.attrType $column.attrname;
+    #elseif($column.columnName =="update_time")
+    /**
+     * $column.comments
+     */
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private $column.attrType $column.attrname;
     #else
     /**
      * $column.comments
      */
-    @Column(name = "$column.columnName" )
+    @TableField(value = "$column.columnName" )
     private $column.attrType $column.attrname;
     #end
 #end
