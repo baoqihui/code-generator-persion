@@ -46,6 +46,7 @@ public class GenUtils {
     private final static String FILE_NAME_IService = "IService.java.vm";
     private final static String FILE_NAME_Service = "ServiceImpl.java.vm";
     private final static String FILE_NAME_IRepo = "Mapper.java.vm";
+    private final static String FILE_NAME_XML = "Mapper.xml.vm";
     private final static String FILE_NAME_MODEL = "Model.java.vm";
     private final static String FILE_NAME_DtoModel = "DtoModel.java.vm";
   //  private final static String FILE_NAME_PAGE = "index.html.vm";
@@ -61,6 +62,7 @@ public class GenUtils {
         templates.add(TEMPLATE_PATH+ FILE_NAME_ServiceFacade);
         templates.add(TEMPLATE_PATH+FILE_NAME_MODEL);
         templates.add(TEMPLATE_PATH+ FILE_NAME_IRepo);
+        templates.add(TEMPLATE_PATH+ FILE_NAME_XML);
         templates.add(TEMPLATE_PATH+ FILE_NAME_DtoModel);
         templates.add(TEMPLATE_PATH+ FILE_NAME_IService);
         templates.add(TEMPLATE_PATH+ FILE_NAME_Service);
@@ -230,6 +232,9 @@ public class GenUtils {
         }
         if (template.contains(FILE_NAME_IRepo)) {
             return servicePackagePath + "service" + File.separator +"repo"+ File.separator + className + "Mapper.java";
+        }
+        if (template.contains(FILE_NAME_XML)) {
+            return "main" + File.separator + "resources" + File.separator + "mapper" + File.separator + className + "Mapper.xml";
         }
 
         if (template.contains(FILE_NAME_MODEL)) {

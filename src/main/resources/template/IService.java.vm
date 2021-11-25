@@ -2,12 +2,15 @@ package ${package}.service.api;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import ${package}.entity.model.${className};
+import com.cheche365.ccgeneral.backend.service.util.Result;
+import com.github.pagehelper.PageInfo;
 
+import java.util.Map;
 /**
  * @Author: ${author}
  * @Description: ${comments}服务接口
  * @Date: ${datetime}
  */
 public interface I${className}Service extends IService<${className}>{
-
+    Result<PageInfo<HuiCe>> findList(Map<String, Object> params) throws Exception;
 }
