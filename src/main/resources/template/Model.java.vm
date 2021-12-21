@@ -1,10 +1,11 @@
 package ${package}.entity.model;
 
-import java.io.Serializable;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import java.util.Date;
+import ${package}.entity.model.base.BaseTimeTrackEntity;
 #if(${hasBigDecimal})
 import java.math.BigDecimal;
 #end
@@ -17,30 +18,16 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @TableName(value = "${tableName}")
-public class ${className} implements Serializable {
+@EqualsAndHashCode(callSuper = true)
+public class ${className} extends BaseTimeTrackEntity {
     private static final long serialVersionUID =  1L;
 
 #foreach ($column in $columns)
-    #if( $column.columnName =="id")
-    @TableId(value = "$column.columnName" ,type = IdType.AUTO)
-    private $column.attrType $column.attrname;
-    #elseif($column.columnName =="create_time")
+    #if($column.columnName != $pk.columnName && $column.columnName != "create_time" && $column.columnName != "update_time")
     /**
      * $column.comments
      */
-    @TableField(fill = FieldFill.INSERT)
-    private $column.attrType $column.attrname;
-    #elseif($column.columnName =="update_time")
-    /**
-     * $column.comments
-     */
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private $column.attrType $column.attrname;
-    #else
-    /**
-     * $column.comments
-     */
-    @TableField(value = "$column.columnName" )
+    @TableField(value = "$column.columnName")
     private $column.attrType $column.attrname;
     #end
 #end

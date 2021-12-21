@@ -15,15 +15,15 @@
             #elseif($column.columnName =="update_time")
             #else
             <if test="p.$column.attrname != null and p.$column.attrname != ''">
-                and t.$column.columnName LIKE #[['%${p.]]#$column.attrname#[[}%']]#
+                and t.$column.columnName LIKE #[['%#{p.]]#$column.attrname#[[}%']]#
             </if>
             #end
         #end
             <if test="p.startTime != null and p.startTime != '' ">
-                and t.create_time >= '${p.startTime}'
+                and t.create_time >= '#{p.startTime}'
             </if>
             <if test="p.endTime !=null and p.endTime != '' ">
-                and '${p.endTime}' >= t.create_time
+                and '#{p.endTime}' >= t.create_time
             </if>
         order by t.id desc
     </select>

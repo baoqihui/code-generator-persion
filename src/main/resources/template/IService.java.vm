@@ -12,5 +12,5 @@ import java.util.Map;
  * @Date: ${datetime}
  */
 public interface I${className}Service extends IService<${className}>{
-    Result<PageInfo<HuiCe>> findList(Map<String, Object> params) throws Exception;
+    Result<PageInfo<${className}>> findList(Map<String, Object> params) throws Exception;
 }
