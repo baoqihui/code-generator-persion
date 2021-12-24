@@ -4,12 +4,14 @@ import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import java.util.Date;
+
 import ${package}.entity.model.base.BaseTimeTrackEntity;
 #if(${hasBigDecimal})
 import java.math.BigDecimal;
 #end
-
+#if(${hasDate})
+import java.util.Date;
+#end
 /**
  * @Author: ${author}
  * @Description: ${comments}实体

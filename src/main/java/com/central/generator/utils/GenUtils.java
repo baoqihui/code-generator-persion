@@ -80,6 +80,7 @@ public class GenUtils {
         //配置信息
         Configuration config = getConfig();
         boolean hasBigDecimal = false;
+        boolean hasDate = false;
         //表信息
         TableEntity tableEntity = new TableEntity();
         tableEntity.setTableName(table.get("tableName"));
@@ -109,6 +110,9 @@ public class GenUtils {
             columnEntity.setAttrType(attrType);
             if (!hasBigDecimal && attrType.equals("BigDecimal")) {
                 hasBigDecimal = true;
+            }
+            if (!hasDate && attrType.equals("Date")&&!"create_time".equals(columnEntity.getColumnName())&&!"update_time".equals(columnEntity.getColumnName())) {
+                hasDate = true;
             }
             //是否主键
             if ("PRI".equalsIgnoreCase(column.get("columnKey")) && tableEntity.getPk() == null) {
@@ -141,6 +145,7 @@ public class GenUtils {
         map.put("pathName", tableEntity.getClassname().toLowerCase());
         map.put("columns", tableEntity.getColumns());
         map.put("hasBigDecimal", hasBigDecimal);
+        map.put("hasDate", hasDate);
         map.put("mainPath", mainPath);
         map.put(PACKAGE, config.getString(PACKAGE));
         map.put(MODULE_NAME, config.getString(MODULE_NAME));
