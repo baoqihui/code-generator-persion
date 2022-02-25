@@ -2,10 +2,10 @@ package ${package}.${moduleName}.controller.impl;
 
 import ${package}.entity.model.${className};
 import ${package}.service.api.I${className}Service;
+import ${package}.service.util.PageResult;
 import ${package}.service.util.Result;
 import ${package}.${moduleName}.controller.api.I${className}Resource;
 import ${package}.${moduleName}.controller.version.ApiVersion;
-import com.github.pagehelper.PageInfo;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +24,7 @@ public class ${className}Resource implements I${className}Resource {
     private I${className}Service ${classname}Service;
 
     @Override
-    public Result<PageInfo<${className}>> findList(Map<String, Object> params) throws Exception{
+    public Result<PageResult<${className}>> findList(Map<String, Object> params) throws Exception{
         return ${classname}Service.findList(params);
     }
 }

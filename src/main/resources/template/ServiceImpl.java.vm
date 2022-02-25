@@ -6,6 +6,7 @@ import ${package}.service.api.I${className}Service;
 import ${package}.service.repo.${className}Mapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cheche365.ccgeneral.backend.service.util.Result;
+import ${package}.service.util.PageResult;
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.page.PageMethod;
 import lombok.extern.slf4j.Slf4j;
@@ -30,12 +31,12 @@ public class ${className}ServiceImpl extends ServiceImpl<${className}Mapper, ${c
     private ${className}Mapper ${classname}Mapper;
 
     @Override
-    public Result<PageInfo<${className}>> findList(Map<String, Object> params) throws Exception {
+    public Result<PageResult<${className}>> findList(Map<String, Object> params) throws Exception {
         Integer pageNum = MapUtil.getInt(params, "pageNum", DEF_PAGE_NUM);
         Integer pageSize = MapUtil.getInt(params, "pageSize", DEF_PAGE_SIZE);
         PageMethod.startPage(pageNum, pageSize);
         List<${className}> ${classname}s = ${classname}Mapper.findList(params);
-        return Result.success(new PageInfo<>(${classname}s));
+        return Result.success(PageResult.restPage(new PageInfo<>(${classname}s)));
     }
 }
 

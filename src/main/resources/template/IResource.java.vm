@@ -1,8 +1,8 @@
 package ${package}.${moduleName}.controller.api;
 
 import ${package}.entity.model.${className};
+import ${package}.service.util.PageResult;
 import ${package}.service.util.Result;
-import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;
@@ -26,5 +26,5 @@ public interface I${className}Resource {
      */
     @ApiOperation(value = "查询列表")
     @PostMapping("/list")
-    Result<PageInfo<${className}>> findList(@RequestBody Map<String, Object> params) throws Exception;
+    Result<PageResult<${className}>> findList(@RequestBody Map<String, Object> params) throws Exception;
 }

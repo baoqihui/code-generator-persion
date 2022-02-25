@@ -3,8 +3,7 @@ package ${package}.service.api;
 import com.baomidou.mybatisplus.extension.service.IService;
 import ${package}.entity.model.${className};
 import com.cheche365.ccgeneral.backend.service.util.Result;
-import com.github.pagehelper.PageInfo;
-
+import com.cheche365.ccgeneral.backend.service.util.PageResult;
 import java.util.Map;
 /**
  * @Author: ${author}
@@ -12,5 +11,5 @@ import java.util.Map;
  * @Date: ${datetime}
  */
 public interface I${className}Service extends IService<${className}>{
-    Result<PageInfo<${className}>> findList(Map<String, Object> params) throws Exception;
+    Result<PageResult<${className}>> findList(Map<String, Object> params) throws Exception;
 }
