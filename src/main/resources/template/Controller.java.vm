@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import java.util.Map;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import ${package}.${moduleName}.util.EasyPoiExcelUtil;
@@ -31,8 +31,8 @@ import ${package}.${moduleName}.common.model.Result;
 @RestController
 @Api(tags = "${comments}")
 @RequestMapping("${lTablePrefix}")
+@AllArgsConstructor
 public class ${className}Controller {
-    @Autowired
     private I${className}Service ${classname}Service;
 
     /**

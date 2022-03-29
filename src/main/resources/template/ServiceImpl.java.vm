@@ -4,9 +4,9 @@ import ${package}.${moduleName}.service.I${className}Service;
 import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import javax.annotation.Resource;
+import lombok.AllArgsConstructor;
 import java.util.Map;
-import org.apache.commons.collections4.MapUtils;
+import cn.hutool.core.map.MapUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import ${package}.${moduleName}.model.${className};
@@ -19,8 +19,8 @@ import ${package}.${moduleName}.model.${className};
  */
 @Slf4j
 @Service
+@AllArgsConstructor
 public class ${className}ServiceImpl extends ServiceImpl<${className}Mapper, ${className}> implements I${className}Service {
-    @Resource
     private ${className}Mapper ${classname}Mapper;
     /**
      * 列表
@@ -28,8 +28,8 @@ public class ${className}ServiceImpl extends ServiceImpl<${className}Mapper, ${c
      * @return
      */
     public Page<Map> findList(Map<String, Object> params){
-        Integer pageNum = MapUtils.getInteger(params, "pageNum");
-        Integer pageSize = MapUtils.getInteger(params, "pageSize");
+        Integer pageNum = MapUtil.getInt(params, "pageNum");
+        Integer pageSize = MapUtil.getInt(params, "pageSize");
         if (pageNum == null) {
             pageNum = 1;
         }
