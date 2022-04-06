@@ -30,7 +30,7 @@ import ${package}.${moduleName}.common.model.Result;
 @CrossOrigin
 @RestController
 @Api(tags = "${comments}")
-@RequestMapping("${lTablePrefix}")
+@RequestMapping("${classname}")
 @AllArgsConstructor
 public class ${className}Controller {
     private I${className}Service ${classname}Service;
@@ -39,7 +39,7 @@ public class ${className}Controller {
      * 列表
      */
     @ApiOperation(value = "查询列表")
-    @PostMapping("/${classname}/list")
+    @PostMapping("/list")
     public Result<PageResult> list(@RequestBody Map<String, Object> params) {
         Page<Map> list= ${classname}Service.findList(params);
         return Result.succeed(PageResult.restPage(list),"查询成功");
@@ -49,8 +49,8 @@ public class ${className}Controller {
      * 查询
      */
     @ApiOperation(value = "查询")
-    @PostMapping("/${classname}/sel/{id}")
-    public Result findUserById(@PathVariable Long ${pk.attrname}) {
+    @PostMapping("/sel/{id}")
+    public Result find${className}ById(@PathVariable Long ${pk.attrname}) {
         ${className} model = ${classname}Service.getById(${pk.attrname});
         return Result.succeed(model, "查询成功");
     }
@@ -59,7 +59,7 @@ public class ${className}Controller {
      * 新增or更新
      */
     @ApiOperation(value = "新增or更新")
-    @PostMapping("/${classname}/save")
+    @PostMapping("/save")
     public Result save(@RequestBody ${className} ${classname}) {
         ${classname}Service.saveOrUpdate(${classname});
         return Result.succeed("保存成功");
@@ -69,7 +69,7 @@ public class ${className}Controller {
      * 批量新增or更新
      */
     @ApiOperation(value = "批量新增or更新")
-    @PostMapping("/${classname}/saveBatch")
+    @PostMapping("/saveBatch")
     public Result saveBatch(@RequestBody Map<String,List<${className}>> map) {
         List<${className}> models = map.get("models");
         ${classname}Service.saveOrUpdateBatch(models);
@@ -80,7 +80,7 @@ public class ${className}Controller {
      * 删除
      */
     @ApiOperation(value = "批量删除")
-    @PostMapping("/${classname}/del")
+    @PostMapping("/del")
     public Result delete(@RequestBody Map<String,List<Long>> map) {
         List<Long> ids = map.get("ids");
         ${classname}Service.removeByIds(ids);
@@ -91,7 +91,7 @@ public class ${className}Controller {
      * 导入
      */
     @ApiOperation(value = "导入")
-    @PostMapping("/${classname}/leadIn")
+    @PostMapping("/leadIn")
     public  Result leadIn(MultipartFile excel) throws Exception {
         int rowNum = 0;
         if (!excel.isEmpty()) {
@@ -111,7 +111,7 @@ public class ${className}Controller {
      * 导出（传入ids数组，选择指定id）
      */
     @ApiOperation(value = "导出（传入ids数组，选择指定id）")
-    @PostMapping("/${classname}/leadOut")
+    @PostMapping("/leadOut")
     public void leadOut(@RequestBody Map<String,List<Long>> map,HttpServletResponse response) throws IOException {
         List<Long> ids = map.get("ids");
         List<${className}> ${classname}List = ids==null||ids.isEmpty()? ${classname}Service.list(new QueryWrapper<>()):(List)${classname}Service.listByIds(ids);
