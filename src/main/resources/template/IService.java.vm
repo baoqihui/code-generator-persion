@@ -1,15 +1,16 @@
 package ${package}.service.api;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import ${package}.entity.model.${className};
-import com.cheche365.ccgeneral.backend.service.util.Result;
-import com.cheche365.ccgeneral.backend.service.util.PageResult;
+import ${package}.shared.domain.model.${className};
+import ${package}.shared.domain.model.base.PageResult;
+
 import java.util.Map;
+
 /**
  * @Author: ${author}
  * @Description: ${comments}服务接口
  * @Date: ${datetime}
  */
-public interface I${className}Service extends IService<${className}>{
-    Result<PageResult<${className}>> findList(Map<String, Object> params) throws Exception;
+public interface I${className}Service extends IService<${className}> {
+    PageResult<${className}> findList(Map<String, Object> params);
 }

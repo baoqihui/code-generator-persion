@@ -1,12 +1,11 @@
 package ${package}.service.impl;
 
 import cn.hutool.core.map.MapUtil;
-import ${package}.entity.model.${className};
-import ${package}.service.api.I${className}Service;
-import ${package}.service.repo.${className}Mapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.cheche365.ccgeneral.backend.service.util.Result;
-import ${package}.service.util.PageResult;
+import ${package}.service.repo.${className}Mapper;
+import ${package}.service.api.I${className}Service;
+import ${package}.shared.domain.model.${className};
+import ${package}.shared.domain.model.base.PageResult;
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.page.PageMethod;
 import lombok.extern.slf4j.Slf4j;
@@ -16,8 +15,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 
-import static ${package}.entity.constant.PageConstants.DEF_PAGE_NUM;
-import static ${package}.entity.constant.PageConstants.DEF_PAGE_SIZE;
+import static ${package}.shared.domain.param.base.PageConstants.DEF_PAGE_NUM;
+import static ${package}.shared.domain.param.base.PageConstants.DEF_PAGE_SIZE;
 
 /**
  * @Author: ${author}
@@ -31,12 +30,12 @@ public class ${className}ServiceImpl extends ServiceImpl<${className}Mapper, ${c
     private ${className}Mapper ${classname}Mapper;
 
     @Override
-    public Result<PageResult<${className}>> findList(Map<String, Object> params) throws Exception {
+    public PageResult<${className}> findList(Map<String, Object> params) {
         Integer pageNum = MapUtil.getInt(params, "pageNum", DEF_PAGE_NUM);
         Integer pageSize = MapUtil.getInt(params, "pageSize", DEF_PAGE_SIZE);
         PageMethod.startPage(pageNum, pageSize);
         List<${className}> ${classname}s = ${classname}Mapper.findList(params);
-        return Result.success(PageResult.restPage(new PageInfo<>(${classname}s)));
+        return PageResult.restPage(new PageInfo<>(${classname}s));
     }
 }
 

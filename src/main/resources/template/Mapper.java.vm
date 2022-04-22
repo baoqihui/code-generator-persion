@@ -1,13 +1,14 @@
 package ${package}.service.repo;
 
 
-import ${package}.entity.model.${className};
+import ${package}.shared.domain.model.${className};
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
+
 /**
  * @Author: ${author}
  * @Description: ${comments}mapper操作
@@ -15,5 +16,5 @@ import java.util.Map;
  */
 @Mapper
 public interface ${className}Mapper extends BaseMapper<${className}> {
-    List<${className}> findList(@Param("p")Map<String, Object> params) throws Exception;
+    List<${className}> findList(@Param("p") Map<String, Object> params);
 }

@@ -11,7 +11,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <mysql.version>5.1.21</mysql.version>
+        <mysql.version>8.0.11</mysql.version>
         <swagger.version>2.9.2</swagger.version>
         <swagger.ui.version>2.9.2</swagger.ui.version>
         <commons-collections4.version>4.2</commons-collections4.version>

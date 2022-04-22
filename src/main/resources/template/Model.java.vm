@@ -5,7 +5,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import ${package}.entity.model.base.BaseTimeTrackEntity;
+import ${package}.shared.domain.model.base.BaseTimeTrackEntity;
+
 #if(${hasBigDecimal})
 import java.math.BigDecimal;
 #end

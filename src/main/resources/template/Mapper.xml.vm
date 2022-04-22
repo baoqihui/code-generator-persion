@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="${package}.service.repo.${className}Mapper">
-    <select id="findList" resultType="${package}.entity.model.${className}">
+    <select id="findList" resultType="${package}.shared.domain.model.${className}">
         select
         #foreach ($column in $columns)
             t.$column.columnName $column.attrname,
@@ -12,19 +12,23 @@
         #foreach ($column in $columns)
             #if( $column.columnName =="id")
             #elseif($column.columnName =="create_time")
+            <if test="p.startTime != null and p.startTime != '' ">
+                and t.create_time >= #{p.startTime}
+            </if>
+            <if test="p.endTime !=null and p.endTime != '' ">
+                and #{p.endTime} >= t.create_time
+            </if>
             #elseif($column.columnName =="update_time")
+            #elseif($column.attrType =="Integer")
+            <if test="p.$column.attrname != null">
+                and t.$column.columnName = #[[#{p.]]#$column.attrname#[[}]]#
+            </if>
             #else
             <if test="p.$column.attrname != null and p.$column.attrname != ''">
-                and t.$column.columnName LIKE #[['%#{p.]]#$column.attrname#[[}%']]#
+                and t.$column.columnName LIKE #[['%${p.]]#$column.attrname#[[}%']]#
             </if>
             #end
         #end
-            <if test="p.startTime != null and p.startTime != '' ">
-                and t.create_time >= '#{p.startTime}'
-            </if>
-            <if test="p.endTime !=null and p.endTime != '' ">
-                and '#{p.endTime}' >= t.create_time
-            </if>
         order by t.id desc
     </select>
 </mapper>

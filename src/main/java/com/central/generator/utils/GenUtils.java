@@ -39,36 +39,24 @@ public class GenUtils {
         throw new IllegalStateException("Utility class");
     }
 
-    private final static String FILE_NAME_IResource = "IResource.java.vm";
-    private final static String FILE_NAME_Resource = "Resource.java.vm";
-    private final static String FILE_NAME_IServiceFacade = "IServiceFacade.java.vm";
-    private final static String FILE_NAME_ServiceFacade = "ServiceFacade.java.vm";
+    private final static String FILE_NAME_CONTROLLER = "Controller.java.vm";
     private final static String FILE_NAME_IService = "IService.java.vm";
     private final static String FILE_NAME_Service = "ServiceImpl.java.vm";
     private final static String FILE_NAME_IRepo = "Mapper.java.vm";
     private final static String FILE_NAME_XML = "Mapper.xml.vm";
     private final static String FILE_NAME_MODEL = "Model.java.vm";
-    private final static String FILE_NAME_DtoModel = "DtoModel.java.vm";
-  //  private final static String FILE_NAME_PAGE = "index.html.vm";
     private final static String TEMPLATE_PATH = "template/";
     private final static String PACKAGE = "package";
     private final static String MODULE_NAME = "moduleName";
 
     public static List<String> getTemplates() {
         List<String> templates = new ArrayList<>();
-        templates.add(TEMPLATE_PATH+ FILE_NAME_IResource);
-        templates.add(TEMPLATE_PATH+ FILE_NAME_Resource);
-        templates.add(TEMPLATE_PATH+ FILE_NAME_IServiceFacade);
-        templates.add(TEMPLATE_PATH+ FILE_NAME_ServiceFacade);
-        templates.add(TEMPLATE_PATH+FILE_NAME_MODEL);
-        templates.add(TEMPLATE_PATH+ FILE_NAME_IRepo);
-        templates.add(TEMPLATE_PATH+ FILE_NAME_XML);
-        templates.add(TEMPLATE_PATH+ FILE_NAME_DtoModel);
-        templates.add(TEMPLATE_PATH+ FILE_NAME_IService);
-        templates.add(TEMPLATE_PATH+ FILE_NAME_Service);
-
-       // templates.add(TEMPLATE_PATH+FILE_NAME_PAGE);
-
+        templates.add(TEMPLATE_PATH + FILE_NAME_CONTROLLER);
+        templates.add(TEMPLATE_PATH + FILE_NAME_MODEL);
+        templates.add(TEMPLATE_PATH + FILE_NAME_IRepo);
+        templates.add(TEMPLATE_PATH + FILE_NAME_XML);
+        templates.add(TEMPLATE_PATH + FILE_NAME_IService);
+        templates.add(TEMPLATE_PATH + FILE_NAME_Service);
         return templates;
     }
 
@@ -111,7 +99,7 @@ public class GenUtils {
             if (!hasBigDecimal && attrType.equals("BigDecimal")) {
                 hasBigDecimal = true;
             }
-            if (!hasDate && attrType.equals("Date")&&!"create_time".equals(columnEntity.getColumnName())&&!"update_time".equals(columnEntity.getColumnName())) {
+            if (!hasDate && attrType.equals("Date") && !"create_time".equals(columnEntity.getColumnName()) && !"update_time".equals(columnEntity.getColumnName())) {
                 hasDate = true;
             }
             //是否主键
@@ -137,7 +125,7 @@ public class GenUtils {
         //封装模板数据
         Map<String, Object> map = new HashMap<>();
         map.put("tableName", tableEntity.getTableName());
-        map.put("lTablePrefix",lTablePrefix);
+        map.put("lTablePrefix", lTablePrefix);
         map.put("comments", tableEntity.getComments());
         map.put("pk", tableEntity.getPk());
         map.put("className", tableEntity.getClassName());
@@ -207,57 +195,31 @@ public class GenUtils {
      */
     public static String getFileName(String template, String className, String packageName, String moduleName) {
         String packagePath = "main" + File.separator + "java" + File.separator;
-        String servicePackagePath=packagePath;
-        String entityPackagePath=packagePath;
+        String servicePackagePath = packagePath;
+        String sharedPackagePath = packagePath;
         if (StringUtils.isNotBlank(packageName)) {
             packagePath += packageName.replace(".", File.separator) + File.separator + moduleName + File.separator;
             servicePackagePath += packageName.replace(".", File.separator) + File.separator + "service" + File.separator;
-            entityPackagePath += packageName.replace(".", File.separator) + File.separator + "entity" + File.separator;
+            sharedPackagePath += packageName.replace(".", File.separator) + File.separator + "shared" + File.separator;
         }
-        if (template.contains(FILE_NAME_IResource)) {
-            return packagePath + "controller" +File.separator+"api"+ File.separator +"I"+ className + "Resource.java";
-        }
-        if (template.contains(FILE_NAME_Resource)) {
-            return packagePath + "controller" +File.separator+"impl"+ File.separator + className + "Resource.java";
-        }
-        if (template.contains(FILE_NAME_DtoModel)) {
-            return packagePath + "dto" + File.separator + "Dto" +className + ".java";
-        }
-        if (template.contains(FILE_NAME_IServiceFacade)) {
-            return packagePath + "service" +File.separator+"api"+ File.separator +"I"+ className + "ServiceFacade.java";
-        }
-        if (template.contains(FILE_NAME_ServiceFacade)) {
-            return packagePath + "service" +File.separator+"impl"+ File.separator + className + "ServiceFacade.java";
+        if (template.contains(FILE_NAME_CONTROLLER)) {
+            return packagePath + "controller" + File.separator + className + "Controller.java";
         }
         if (template.contains(FILE_NAME_IService)) {
-            return servicePackagePath + "service" +File.separator+"api"+ File.separator +"I"+ className + "Service.java";
+            return servicePackagePath + File.separator + "api" + File.separator + "I" + className + "Service.java";
         }
         if (template.contains(FILE_NAME_Service)) {
-            return servicePackagePath + "service" +File.separator+"impl"+ File.separator + className + "ServiceImpl.java";
+            return servicePackagePath + File.separator + "impl" + File.separator + className + "ServiceImpl.java";
         }
         if (template.contains(FILE_NAME_IRepo)) {
-            return servicePackagePath + "service" + File.separator +"repo"+ File.separator + className + "Mapper.java";
+            return servicePackagePath + File.separator + "repo" + File.separator + className + "Mapper.java";
         }
         if (template.contains(FILE_NAME_XML)) {
             return "main" + File.separator + "resources" + File.separator + "mapper" + File.separator + className + "Mapper.xml";
         }
-
         if (template.contains(FILE_NAME_MODEL)) {
-            return entityPackagePath + "model" + File.separator + className + ".java";
+            return sharedPackagePath + File.separator + "domain" + File.separator + "model" + File.separator + className + ".java";
         }
-
-
-
-
-        if (template.contains(FILE_NAME_DtoModel)) {
-            return "main" + File.separator + "resources" + File.separator  + "mapper" + File.separator + className + "Mapper.xml";
-        }
-/*
-        if (template.contains(FILE_NAME_PAGE)) {
-            return "main" + File.separator + "view" + File.separator + "pages" +
-                    File.separator + moduleName + File.separator + "index.html";
-        }*/
-
         return null;
     }
 }
