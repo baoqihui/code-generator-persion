@@ -11,6 +11,7 @@
         where 1=1
         #foreach ($column in $columns)
             #if( $column.columnName =="id")
+            #elseif($column.columnName =="update_time")
             #elseif($column.columnName =="create_time")
             <if test="p.startTime != null and p.startTime != '' ">
                 and t.create_time >= #{p.startTime}
@@ -18,8 +19,7 @@
             <if test="p.endTime !=null and p.endTime != '' ">
                 and #{p.endTime} >= t.create_time
             </if>
-            #elseif($column.columnName =="update_time")
-            #elseif($column.attrType =="Integer")
+            #elseif($column.attrType == "Integer" or $column.attrType == "Long")
             <if test="p.$column.attrname != null">
                 and t.$column.columnName = #[[#{p.]]#$column.attrname#[[}]]#
             </if>
