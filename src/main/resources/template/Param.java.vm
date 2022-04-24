@@ -31,6 +31,15 @@ public class ${className}ListReq extends PageReq {
      * $column.comments
      */
     private $column.attrType $column.attrname;
+    #elseif($column.columnName == "create_time")
+    /**
+     * 开始时间
+     */
+    private String startTime;
+    /**
+     * 结束时间
+     */
+    private String endTime;
     #end
 #end
 }
