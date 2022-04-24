@@ -5,7 +5,11 @@
     <select id="findList" resultType="map">
         select
         #foreach ($column in $columns)
+            #if( $column.last == "1" )
+            t.$column.columnName $column.attrname   -- $column.comments
+            #else
             t.$column.columnName $column.attrname,  -- $column.comments
+            #end
         #end
         from ${tableName} t
         where 1=1

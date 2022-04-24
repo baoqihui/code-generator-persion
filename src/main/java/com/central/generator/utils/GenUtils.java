@@ -84,7 +84,9 @@ public class GenUtils {
 
         //列信息
         List<ColumnEntity> columsList = new ArrayList<>();
+        int index = 0;
         for (Map<String, String> column : columns) {
+            index++;
             ColumnEntity columnEntity = new ColumnEntity();
             columnEntity.setColumnName(column.get("columnName"));
             columnEntity.setDataType(column.get("dataType"));
@@ -95,7 +97,7 @@ public class GenUtils {
             String attrName = columnToJava(columnEntity.getColumnName());
             columnEntity.setAttrName(attrName);
             columnEntity.setAttrname(StringUtils.uncapitalize(attrName));
-
+            columnEntity.setLast(index == columns.size()?1:0);
             //列的数据类型，转换成Java类型
             String attrType = config.getString(columnEntity.getDataType(), "unknowType");
             columnEntity.setAttrType(attrType);
@@ -106,7 +108,6 @@ public class GenUtils {
             if ("PRI".equalsIgnoreCase(column.get("columnKey")) && tableEntity.getPk() == null) {
                 tableEntity.setPk(columnEntity);
             }
-
             columsList.add(columnEntity);
         }
         tableEntity.setColumns(columsList);
