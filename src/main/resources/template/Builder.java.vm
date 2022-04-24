@@ -1,0 +1,52 @@
+package ${package}.shared.builder;
+
+import ${package}.shared.domain.model.${className};
+import ${package}.shared.domain.param.${className}QueryReq;
+import ${package}.shared.domain.vo.${className}QueryVo;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
+import org.mapstruct.factory.Mappers;
+
+/**
+ * @Author: ${author}
+ * @Description: ${comments}构建器
+ * @Date: ${datetime}
+ */
+@Mapper
+public interface ${className}Builder {
+
+    ${className}Builder ${classname}Builder = Mappers.getMapper(${className}Builder.class);
+
+    /**
+    * 入参转实体
+    */
+    @Mappings(value = {
+        #foreach ($column in $columns)
+            #if($column.columnName != $pk.columnName && $column.columnName != "create_time" && $column.columnName != "update_time")
+                #if($column.last == "1")
+            @Mapping(source = "${column.columnName}", target = "${column.columnName}")
+                #else
+            @Mapping(source = "$column.attrname",target = "$column.attrname"),
+                #end
+            #end
+        #end
+    })
+    ${className} queryReqToModel(${className}QueryReq req);
+
+    /**
+    * 出参转实体
+    */
+    @Mappings(value = {
+        #foreach ($column in $columns)
+            #if($column.columnName != $pk.columnName && $column.columnName != "create_time" && $column.columnName != "update_time")
+                #if($column.last == "1")
+            @Mapping(source = "${column.columnName}", target = "${column.columnName}")
+                #else
+            @Mapping(source = "$column.attrname",target = "$column.attrname"),
+                #end
+            #end
+        #end
+    })
+    ${className} queryVoToModel(${className}QueryVo req);
+}

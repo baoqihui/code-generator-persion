@@ -45,6 +45,9 @@ public class GenUtils {
     private final static String FILE_NAME_IRepo = "Mapper.java.vm";
     private final static String FILE_NAME_XML = "Mapper.xml.vm";
     private final static String FILE_NAME_MODEL = "Model.java.vm";
+    private final static String FILE_NAME_PARAM = "Param.java.vm";
+    private final static String FILE_NAME_PARAM_VO = "ParamVo.java.vm";
+    private final static String FILE_NAME_BUILDER = "Builder.java.vm";
     private final static String TEMPLATE_PATH = "template/";
     private final static String PACKAGE = "package";
     private final static String MODULE_NAME = "moduleName";
@@ -57,6 +60,9 @@ public class GenUtils {
         templates.add(TEMPLATE_PATH + FILE_NAME_XML);
         templates.add(TEMPLATE_PATH + FILE_NAME_IService);
         templates.add(TEMPLATE_PATH + FILE_NAME_Service);
+        templates.add(TEMPLATE_PATH + FILE_NAME_PARAM);
+        templates.add(TEMPLATE_PATH + FILE_NAME_PARAM_VO);
+        templates.add(TEMPLATE_PATH + FILE_NAME_BUILDER);
         return templates;
     }
 
@@ -81,7 +87,9 @@ public class GenUtils {
 
         //列信息
         List<ColumnEntity> columsList = new ArrayList<>();
+        int index = 0;
         for (Map<String, String> column : columns) {
+            index++;
             ColumnEntity columnEntity = new ColumnEntity();
             columnEntity.setColumnName(column.get("columnName"));
             columnEntity.setDataType(column.get("dataType"));
@@ -92,21 +100,20 @@ public class GenUtils {
             String attrName = columnToJava(columnEntity.getColumnName());
             columnEntity.setAttrName(attrName);
             columnEntity.setAttrname(StringUtils.uncapitalize(attrName));
-
+            columnEntity.setLast(index == columns.size()?1:0);
             //列的数据类型，转换成Java类型
             String attrType = config.getString(columnEntity.getDataType(), "unknowType");
             columnEntity.setAttrType(attrType);
             if (!hasBigDecimal && attrType.equals("BigDecimal")) {
                 hasBigDecimal = true;
             }
-            if (!hasDate && attrType.equals("Date") && !"create_time".equals(columnEntity.getColumnName()) && !"update_time".equals(columnEntity.getColumnName())) {
+            if (!hasDate && attrType.equals("LocalDate") && !"create_time".equals(columnEntity.getColumnName()) && !"update_time".equals(columnEntity.getColumnName())) {
                 hasDate = true;
             }
             //是否主键
             if ("PRI".equalsIgnoreCase(column.get("columnKey")) && tableEntity.getPk() == null) {
                 tableEntity.setPk(columnEntity);
             }
-
             columsList.add(columnEntity);
         }
         tableEntity.setColumns(columsList);
@@ -219,6 +226,15 @@ public class GenUtils {
         }
         if (template.contains(FILE_NAME_MODEL)) {
             return sharedPackagePath + File.separator + "domain" + File.separator + "model" + File.separator + className + ".java";
+        }
+        if (template.contains(FILE_NAME_PARAM)) {
+            return sharedPackagePath + File.separator + "domain" + File.separator + "param" + File.separator + className + "ListReq.java";
+        }
+        if (template.contains(FILE_NAME_PARAM_VO)) {
+            return sharedPackagePath + File.separator + "domain" + File.separator + "vo" + File.separator + className + "ListVo.java";
+        }
+        if (template.contains(FILE_NAME_BUILDER)) {
+            return sharedPackagePath + File.separator + "builder" + File.separator + className + "Builder.java";
         }
         return null;
     }

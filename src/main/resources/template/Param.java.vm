@@ -1,11 +1,11 @@
-package ${package}.entity.model;
+package ${package}.shared.domain.param;
 
-import com.baomidou.mybatisplus.annotation.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import ${package}.shared.domain.base.BaseTimeTrackEntity;
+import ${package}.shared.domain.base.PageReq;
 
 #if(${hasBigDecimal})
 import java.math.BigDecimal;
@@ -15,14 +15,14 @@ import java.time.LocalDate;
 #end
 /**
  * @Author: ${author}
- * @Description: ${comments}实体
+ * @Description: ${comments}入参
  * @Date: ${datetime}
  */
 @Data
 @NoArgsConstructor
-@TableName(value = "${tableName}")
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class ${className} extends BaseTimeTrackEntity {
+public class ${className}ListReq extends PageReq {
     private static final long serialVersionUID =  1L;
 
 #foreach ($column in $columns)
@@ -30,7 +30,6 @@ public class ${className} extends BaseTimeTrackEntity {
     /**
      * $column.comments
      */
-    @TableField(value = "$column.columnName")
     private $column.attrType $column.attrname;
     #end
 #end

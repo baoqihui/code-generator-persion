@@ -1,6 +1,6 @@
-package ${package}.entity.model;
+package ${package}.shared.domain.vo;
 
-import com.baomidou.mybatisplus.annotation.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -15,14 +15,14 @@ import java.time.LocalDate;
 #end
 /**
  * @Author: ${author}
- * @Description: ${comments}实体
+ * @Description: ${comments}出参
  * @Date: ${datetime}
  */
 @Data
 @NoArgsConstructor
-@TableName(value = "${tableName}")
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class ${className} extends BaseTimeTrackEntity {
+public class ${className}ListVo extends BaseTimeTrackEntity{
     private static final long serialVersionUID =  1L;
 
 #foreach ($column in $columns)
@@ -30,7 +30,6 @@ public class ${className} extends BaseTimeTrackEntity {
     /**
      * $column.comments
      */
-    @TableField(value = "$column.columnName")
     private $column.attrType $column.attrname;
     #end
 #end

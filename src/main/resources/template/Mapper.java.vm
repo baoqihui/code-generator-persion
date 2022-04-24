@@ -2,12 +2,13 @@ package ${package}.service.repo;
 
 
 import ${package}.shared.domain.model.${className};
+import ${package}.shared.domain.param.${className}ListReq;
+import ${package}.shared.domain.vo.${className}ListVo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * @Author: ${author}
@@ -16,5 +17,5 @@ import java.util.Map;
  */
 @Mapper
 public interface ${className}Mapper extends BaseMapper<${className}> {
-    List<${className}> findList(@Param("p") Map<String, Object> params);
+    List<${className}ListVo> findList(@Param("p") ${className}ListReq ${classname}ListReq);
 }

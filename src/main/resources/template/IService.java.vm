@@ -2,9 +2,9 @@ package ${package}.service.api;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import ${package}.shared.domain.model.${className};
-import ${package}.shared.domain.model.base.PageResult;
-
-import java.util.Map;
+import ${package}.shared.domain.base.PageResult;
+import ${package}.shared.domain.param.${className}ListReq;
+import ${package}.shared.domain.vo.${className}ListVo;
 
 /**
  * @Author: ${author}
@@ -12,5 +12,5 @@ import java.util.Map;
  * @Date: ${datetime}
  */
 public interface I${className}Service extends IService<${className}> {
-    PageResult<${className}> findList(Map<String, Object> params);
+    PageResult<${className}ListVo> findList(${className}ListReq ${classname}ListReq);
 }

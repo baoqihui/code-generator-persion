@@ -1,11 +1,14 @@
 package ${package}.service.impl;
 
-import cn.hutool.core.map.MapUtil;
+import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import ${package}.service.repo.${className}Mapper;
 import ${package}.service.api.I${className}Service;
+import ${package}.shared.constant.PageConstants;
 import ${package}.shared.domain.model.${className};
-import ${package}.shared.domain.model.base.PageResult;
+import ${package}.shared.domain.param.${className}ListReq;
+import ${package}.shared.domain.vo.${className}ListVo;
+import ${package}.shared.domain.base.PageResult;
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.page.PageMethod;
 import lombok.extern.slf4j.Slf4j;
@@ -13,10 +16,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
-import static ${package}.shared.domain.param.base.PageConstants.DEF_PAGE_NUM;
-import static ${package}.shared.domain.param.base.PageConstants.DEF_PAGE_SIZE;
 
 /**
  * @Author: ${author}
@@ -30,12 +30,12 @@ public class ${className}ServiceImpl extends ServiceImpl<${className}Mapper, ${c
     private ${className}Mapper ${classname}Mapper;
 
     @Override
-    public PageResult<${className}> findList(Map<String, Object> params) {
-        Integer pageNum = MapUtil.getInt(params, "pageNum", DEF_PAGE_NUM);
-        Integer pageSize = MapUtil.getInt(params, "pageSize", DEF_PAGE_SIZE);
+    public PageResult<${className}ListVo> findList(${className}ListReq ${classname}ListReq) {
+        Integer pageNum = ObjectUtil.defaultIfNull(${classname}ListReq.getPage(), PageConstants.DEF_PAGE_NUM);
+        Integer pageSize = ObjectUtil.defaultIfNull(${classname}ListReq.getSize(), PageConstants.DEF_PAGE_SIZE);
         PageMethod.startPage(pageNum, pageSize);
-        List<${className}> ${classname}s = ${classname}Mapper.findList(params);
-        return PageResult.restPage(new PageInfo<>(${classname}s));
+        List<${className}ListVo> ${classname}ListVos = ${classname}Mapper.findList(${classname}ListReq);
+        return PageResult.restPage(new PageInfo<>(${classname}ListVos));
     }
 }
 

@@ -33,6 +33,19 @@ public class ColumnEntity {
      */
     private String extra;
 
+    /**
+     * 是否最后一行
+     */
+    private int last;
+
+    public int getLast() {
+        return last;
+    }
+
+    public void setLast(int last) {
+        this.last = last;
+    }
+
     public String getColumnName() {
         return columnName;
     }
@@ -88,4 +101,6 @@ public class ColumnEntity {
     public void setExtra(String extra) {
         this.extra = extra;
     }
+
+
 }
