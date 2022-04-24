@@ -46,8 +46,6 @@ spring boot，mybatis plus，swagger2
 
 + 自行检验实体中的更新时间和创建时间继承关系，默认自动继承`BaseTimeTrackEntity`
 
-+ xml中`from`之前`,`需要手动删除
-
 
 #### 参与贡献
 
