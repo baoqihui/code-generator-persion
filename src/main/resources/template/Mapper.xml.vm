@@ -12,7 +12,7 @@
             #end
         #end
         from ${tableName} t
-        where 1=1
+        <where>
         #foreach ($column in $columns)
             #if( $column.columnName =="id")
             #elseif($column.columnName =="update_time")
@@ -33,6 +33,7 @@
             </if>
             #end
         #end
+        </where>
         order by t.id desc
     </select>
 </mapper>

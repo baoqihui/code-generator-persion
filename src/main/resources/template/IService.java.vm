@@ -1,16 +1,15 @@
 package ${package}.service.api;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import ${package}.shared.domain.model.${className};
-import ${package}.shared.domain.base.PageResult;
+import ${package}.service.model.${className};
 import ${package}.shared.domain.param.${className}ListReq;
 import ${package}.shared.domain.vo.${className}ListVo;
-
+import com.github.pagehelper.PageInfo;
 /**
  * @Author: ${author}
  * @Description: ${comments}服务接口
  * @Date: ${datetime}
  */
 public interface I${className}Service extends IService<${className}> {
-    PageResult<${className}ListVo> findList(${className}ListReq ${classname}ListReq);
+    PageInfo<${className}ListVo> findList(${className}ListReq ${classname}ListReq);
 }

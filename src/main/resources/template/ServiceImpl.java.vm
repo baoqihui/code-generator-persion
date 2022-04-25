@@ -1,14 +1,11 @@
 package ${package}.service.impl;
 
-import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import ${package}.service.repo.${className}Mapper;
 import ${package}.service.api.I${className}Service;
-import ${package}.shared.constant.PageConstants;
-import ${package}.shared.domain.model.${className};
+import ${package}.service.model.${className};
 import ${package}.shared.domain.param.${className}ListReq;
 import ${package}.shared.domain.vo.${className}ListVo;
-import ${package}.shared.domain.base.PageResult;
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.page.PageMethod;
 import lombok.extern.slf4j.Slf4j;
@@ -30,12 +27,10 @@ public class ${className}ServiceImpl extends ServiceImpl<${className}Mapper, ${c
     private ${className}Mapper ${classname}Mapper;
 
     @Override
-    public PageResult<${className}ListVo> findList(${className}ListReq ${classname}ListReq) {
-        Integer pageNum = ObjectUtil.defaultIfNull(${classname}ListReq.getPage(), PageConstants.DEF_PAGE_NUM);
-        Integer pageSize = ObjectUtil.defaultIfNull(${classname}ListReq.getSize(), PageConstants.DEF_PAGE_SIZE);
-        PageMethod.startPage(pageNum, pageSize);
+    public PageInfo<${className}ListVo> findList(${className}ListReq ${classname}ListReq) {
+        PageMethod.startPage(${classname}ListReq.getPageNum(), ${classname}ListReq.getPageSize());
         List<${className}ListVo> ${classname}ListVos = ${classname}Mapper.findList(${classname}ListReq);
-        return PageResult.restPage(new PageInfo<>(${classname}ListVos));
+        return new PageInfo<>(${classname}ListVos);
     }
 }
 

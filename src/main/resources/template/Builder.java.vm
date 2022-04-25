@@ -1,8 +1,8 @@
 package ${package}.shared.builder;
 
-import ${package}.shared.domain.model.${className};
-import ${package}.shared.domain.param.${className}QueryReq;
-import ${package}.shared.domain.vo.${className}QueryVo;
+import ${package}.service.model.${className};
+import ${package}.shared.domain.param.${className}ListReq;
+import ${package}.shared.domain.vo.${className}ListVo;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
@@ -32,7 +32,7 @@ public interface ${className}Builder {
             #end
         #end
     })
-    ${className} queryReqToModel(${className}QueryReq req);
+    ${className} queryReqToModel(${className}ListReq req);
 
     /**
     * 出参转实体
@@ -48,5 +48,5 @@ public interface ${className}Builder {
             #end
         #end
     })
-    ${className} queryVoToModel(${className}QueryVo req);
+    ${className} queryVoToModel(${className}ListVo vo);
 }

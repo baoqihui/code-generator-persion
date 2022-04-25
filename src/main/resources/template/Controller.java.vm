@@ -3,7 +3,6 @@ package ${package}.${moduleName}.controller;
 import ${package}.${moduleName}.response.DResponse;
 import ${package}.${moduleName}.response.Result;
 import ${package}.service.api.I${className}Service;
-import ${package}.shared.domain.model.${className};
 import ${package}.shared.domain.param.${className}ListReq;
 import ${package}.shared.domain.vo.${className}ListVo;
 import ${package}.shared.domain.base.PageResult;
