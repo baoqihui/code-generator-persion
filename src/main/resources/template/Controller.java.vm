@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.util.List;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
-import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletResponse;
 
 
@@ -14,7 +13,6 @@ import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import ${package}.${moduleName}.util.EasyPoiExcelUtil;
 import ${package}.${moduleName}.model.${className};
 import ${package}.${moduleName}.service.I${className}Service;
 import ${package}.${moduleName}.common.model.PageResult;
@@ -85,37 +83,5 @@ public class ${className}Controller {
         List<Long> ids = map.get("ids");
         ${classname}Service.removeByIds(ids);
         return Result.succeed("删除成功");
-    }
-    
-    /**
-     * 导入
-     */
-    @ApiOperation(value = "导入")
-    @PostMapping("/leadIn")
-    public  Result leadIn(MultipartFile excel) throws Exception {
-        int rowNum = 0;
-        if (!excel.isEmpty()) {
-            List<${className}> list = EasyPoiExcelUtil.importExcel(excel, 1, 1, ${className}.class);
-            rowNum = list.size();
-            if (rowNum > 0) {
-                list.forEach(u -> {
-                        ${classname}Service.save(u);
-                });
-                return Result.succeed("成功导入信息"+rowNum+"行数据");
-            }
-        }
-        return Result.failed("导入失败");
-    }
-    
-    /**
-     * 导出（传入ids数组，选择指定id）
-     */
-    @ApiOperation(value = "导出（传入ids数组，选择指定id）")
-    @PostMapping("/leadOut")
-    public void leadOut(@RequestBody Map<String,List<Long>> map,HttpServletResponse response) throws IOException {
-        List<Long> ids = map.get("ids");
-        List<${className}> ${classname}List = ids==null||ids.isEmpty()? ${classname}Service.list(new QueryWrapper<>()):(List)${classname}Service.listByIds(ids);
-        //导出操作
-        EasyPoiExcelUtil.exportExcel(${classname}List, "${comments}导出", "${comments}导出", ${className}.class, "${classname}.xls", response);
     }
 }

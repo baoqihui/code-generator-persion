@@ -27,6 +27,7 @@ public class ${className}ServiceImpl extends ServiceImpl<${className}Mapper, ${c
      * @param params
      * @return
      */
+    @Override
     public Page<Map> findList(Map<String, Object> params){
         Integer pageNum = MapUtil.getInt(params, "pageNum");
         Integer pageSize = MapUtil.getInt(params, "pageSize");

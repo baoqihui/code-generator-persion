@@ -1,7 +1,5 @@
 package ${package}.${moduleName}.model;
 
-import cn.afterturn.easypoi.excel.annotation.Excel;
-import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -32,20 +30,17 @@ public class ${className} extends SuperEntity {
         #if( $column.columnName =="is_del")
         @TableLogic
         @ApiModelProperty(value = "$column.comments",hidden = true)
-        private $column.attrType $column.attrname;
+    private $column.attrType $column.attrname;
         #else
             #if($column.attrType=="Date")
-        @Excel(name = "$column.comments",format="yyyy-MM-dd HH:mm:ss")
         @ApiModelProperty(value = "$column.comments")
-        private $column.attrType $column.attrname;
+    private $column.attrType $column.attrname;
             #elseif($column.attrType=="Boolean")
-        @Excel(name = "$column.comments",replace ={"否_false","是_true"})
         @ApiModelProperty(value = "$column.comments")
-        private $column.attrType $column.attrname;
+    private $column.attrType $column.attrname;
             #else
-        @Excel(name = "$column.comments")
         @ApiModelProperty(value = "$column.comments")
-        private $column.attrType $column.attrname;
+    private $column.attrType $column.attrname;
             #end
         #end
     #end
