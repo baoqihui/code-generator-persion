@@ -28,18 +28,18 @@ public class ${className} extends SuperEntity {
 #foreach ($column in $columns)
     #if($column.columnName != $pk.columnName && $column.columnName != "create_time" && $column.columnName != "update_time")
         #if( $column.columnName =="is_del")
-        @TableLogic
-        @ApiModelProperty(value = "$column.comments",hidden = true)
+    @TableLogic
+    @ApiModelProperty(value = "$column.comments",hidden = true)
     private $column.attrType $column.attrname;
         #else
             #if($column.attrType=="Date")
-        @ApiModelProperty(value = "$column.comments")
+    @ApiModelProperty(value = "$column.comments")
     private $column.attrType $column.attrname;
             #elseif($column.attrType=="Boolean")
-        @ApiModelProperty(value = "$column.comments")
+    @ApiModelProperty(value = "$column.comments")
     private $column.attrType $column.attrname;
             #else
-        @ApiModelProperty(value = "$column.comments")
+    @ApiModelProperty(value = "$column.comments")
     private $column.attrType $column.attrname;
             #end
         #end
