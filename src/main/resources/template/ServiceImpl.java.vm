@@ -29,14 +29,8 @@ public class ${className}ServiceImpl extends ServiceImpl<${className}Mapper, ${c
      */
     @Override
     public Page<Map> findList(Map<String, Object> params){
-        Integer pageNum = MapUtil.getInt(params, "pageNum");
-        Integer pageSize = MapUtil.getInt(params, "pageSize");
-        if (pageNum == null) {
-            pageNum = 1;
-        }
-        if (pageSize == null) {
-            pageSize = -1;
-        }
+        Integer pageNum = MapUtil.getInt(params, "pageNum", 1);
+        Integer pageSize = MapUtil.getInt(params, "pageSize", -1);
         Page<Map> pages = new Page<>(pageNum, pageSize);
         return ${classname}Mapper.findList(pages, params);
     }
